@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c0r7xechban26"]
+
+[node name="Game" type="Node2D" unique_id=1044403714]
+
+[node name="Timer" type="Timer" parent="." unique_id=780778284]
+one_shot = true
