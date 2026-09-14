@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv0dobg48d3m0"]
+
+[ext_resource type="Script" uid="uid://cuw3vj4hkwk27" path="res://global.gd" id="1_6q3x5"]
+[ext_resource type="PackedScene" uid="uid://dnvviqgujiwf2" path="res://scene_transition_rect.tscn" id="2_qxp0b"]
+
+[node name="Global" type="Node2D" unique_id=865355234]
+process_mode = 3
+script = ExtResource("1_6q3x5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=161694467]
+layer = 1000
+
+[node name="SceneTransitionRect" parent="CanvasLayer" unique_id=1960486269 instance=ExtResource("2_qxp0b")]
+unique_name_in_owner = true

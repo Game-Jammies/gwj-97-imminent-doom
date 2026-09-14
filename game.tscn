@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://c0r7xechban26"]
 
+[ext_resource type="Script" uid="uid://bmlsiqb4h8s8t" path="res://game.gd" id="1_e2o6t"]
+
 [node name="Game" type="Node2D" unique_id=1044403714]
+script = ExtResource("1_e2o6t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=413447422]
+
+[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=895302776]
+offset_left = 523.0
+offset_top = 277.0
+offset_right = 569.0
+offset_bottom = 308.0
+text = "Start"
 
 [node name="Timer" type="Timer" parent="." unique_id=780778284]
 one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

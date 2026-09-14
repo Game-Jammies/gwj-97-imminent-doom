@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GWJ 97 Imminent Doom"
+run/main_scene="uid://c0r7xechban26"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://bv0dobg48d3m0"
 
 [display]
 
