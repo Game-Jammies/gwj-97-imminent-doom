@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bs4ynj7ucsjg5"]
+
+[node name="TodoList" type="MarginContainer" unique_id=910694781]
+custom_minimum_size = Vector2(60, 90)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -201.0
+offset_bottom = 286.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=297730129]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=584446615]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=604862160]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1087320645]
+layout_mode = 2
+text = "TO DO LIST"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=451458160]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_hint_mode = 1
+
+[node name="Tasks" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2127851649]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CheckBoxes" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=407834679]
+custom_maximum_size = Vector2(30, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TaskTexts" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=218371670]
+layout_mode = 2
+size_flags_horizontal = 3
