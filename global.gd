@@ -2,8 +2,9 @@ extends Node
 
 @onready var transition_rect := %SceneTransitionRect
 var is_transitioning: bool = false
+@export var room_container: Node
 
-func goto_scene(path):
+func goto_scene(path: String):
 	# Prevent inputs when transitioning
 	if is_transitioning:
 		return
@@ -16,7 +17,7 @@ func goto_scene(path):
 	is_transitioning = false
 
 
-func _swap_scene(path):
+func _swap_scene(path: String):
 	# It is now safe to remove the current scene.
 	var current_scene = get_tree().current_scene
 	current_scene.free()
