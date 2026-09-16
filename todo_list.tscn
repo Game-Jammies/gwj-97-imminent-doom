@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bs4ynj7ucsjg5"]
 
+[ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="1_ak1qb"]
+
 [node name="TodoList" type="MarginContainer" unique_id=910694781]
 custom_minimum_size = Vector2(60, 90)
 anchors_preset = 1
@@ -8,6 +10,7 @@ anchor_right = 1.0
 offset_left = -327.0
 offset_bottom = 286.0
 grow_horizontal = 0
+theme = ExtResource("1_ak1qb")
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 

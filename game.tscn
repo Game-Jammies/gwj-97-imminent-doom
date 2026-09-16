@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmlsiqb4h8s8t" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://k848il4jv0yg" path="res://kitchen.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bs4ynj7ucsjg5" path="res://todo_list.tscn" id="2_feb5d"]
+[ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_fc0e3"]
 
 [node name="Game" type="Node2D" unique_id=1044403714]
 script = ExtResource("1_e2o6t")
@@ -34,7 +35,7 @@ offset_left = -47.5
 offset_right = 47.5
 offset_bottom = 58.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme = ExtResource("3_fc0e3")
 theme_override_font_sizes/normal_font_size = 42
 text = "3:00"
 fit_content = true
