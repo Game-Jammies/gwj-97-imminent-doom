@@ -5,7 +5,7 @@ custom_minimum_size = Vector2(60, 90)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -201.0
+offset_left = -327.0
 offset_bottom = 286.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 16
@@ -41,6 +41,16 @@ custom_maximum_size = Vector2(30, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks/CheckBoxes" unique_id=1254166072]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "O"
+horizontal_alignment = 1
+
 [node name="TaskTexts" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=218371670]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks/TaskTexts" unique_id=1467875036]
+layout_mode = 2
+text = "Wash Dishes"
