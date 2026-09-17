@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	Global.goto_scene("res://test.tscn")
+	Global.goto_scene("res://bedroom.tscn")
 
 
 func _on_timer_timeout() -> void:

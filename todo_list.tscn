@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs4ynj7ucsjg5"]
 
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="1_ak1qb"]
+[ext_resource type="PackedScene" uid="uid://cdbp6m8jqwplu" path="res://task.tscn" id="2_yx0p0"]
 
 [node name="TodoList" type="MarginContainer" unique_id=910694781]
 custom_minimum_size = Vector2(60, 90)
@@ -34,26 +35,26 @@ layout_mode = 2
 size_flags_vertical = 3
 scroll_hint_mode = 1
 
-[node name="Tasks" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2127851649]
+[node name="Tasks" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1115113730]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="CheckBoxes" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=407834679]
-custom_maximum_size = Vector2(30, -1)
+[node name="Task" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=499762300 instance=ExtResource("2_yx0p0")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks/CheckBoxes" unique_id=1254166072]
+[node name="Task2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1101828838 instance=ExtResource("2_yx0p0")]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "O"
-horizontal_alignment = 1
 
-[node name="TaskTexts" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=218371670]
+[node name="Task3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1606933332 instance=ExtResource("2_yx0p0")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks/TaskTexts" unique_id=1467875036]
+[node name="Task4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1887083290 instance=ExtResource("2_yx0p0")]
 layout_mode = 2
-text = "Wash Dishes"
+
+[node name="Task5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=31560942 instance=ExtResource("2_yx0p0")]
+layout_mode = 2
+
+[node name="Task6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1797792208 instance=ExtResource("2_yx0p0")]
+layout_mode = 2
+
+[node name="Task7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1263245714 instance=ExtResource("2_yx0p0")]
+layout_mode = 2
