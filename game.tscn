@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c0r7xechban26"]
 
 [ext_resource type="Script" uid="uid://bmlsiqb4h8s8t" path="res://game.gd" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://k848il4jv0yg" path="res://kitchen.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://bs4ynj7ucsjg5" path="res://todo_list.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://k848il4jv0yg" path="res://Room/kitchen.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bs4ynj7ucsjg5" path="res://Task/todo_list.tscn" id="2_feb5d"]
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_fc0e3"]
 
 [node name="Game" type="Node2D" unique_id=1044403714]

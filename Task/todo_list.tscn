@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bs4ynj7ucsjg5"]
 
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="1_ak1qb"]
-[ext_resource type="PackedScene" uid="uid://cdbp6m8jqwplu" path="res://task.tscn" id="2_yx0p0"]
+[ext_resource type="PackedScene" uid="uid://cdbp6m8jqwplu" path="res://Task/task.tscn" id="2_yx0p0"]
 
 [node name="TodoList" type="MarginContainer" unique_id=910694781]
 custom_minimum_size = Vector2(60, 90)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdbp6m8jqwplu"]
 
 [ext_resource type="Texture2D" uid="uid://dkp46yu5s6sff" path="res://art/Checkbox-Sheet.png" id="1_3qm7i"]
-[ext_resource type="Script" uid="uid://xkre46exnp6o" path="res://task.gd" id="1_dvyfb"]
+[ext_resource type="Script" uid="uid://xkre46exnp6o" path="res://Task/task.gd" id="1_dvyfb"]
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="2_ct837"]
 
 [node name="Task" type="MarginContainer" unique_id=1101828838]

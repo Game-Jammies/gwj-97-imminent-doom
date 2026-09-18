@@ -30,6 +30,8 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://Room/": "orange",
+"res://Task/": "green",
 "res://art/": "red"
 }
 
