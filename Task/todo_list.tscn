@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://bs4ynj7ucsjg5"]
 
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="1_ak1qb"]
-[ext_resource type="PackedScene" uid="uid://cdbp6m8jqwplu" path="res://Task/task.tscn" id="2_yx0p0"]
+[ext_resource type="PackedScene" uid="uid://cdbp6m8jqwplu" path="res://Task/taskInfo.tscn" id="2_yx0p0"]
 
 [node name="TodoList" type="MarginContainer" unique_id=910694781]
 custom_minimum_size = Vector2(60, 90)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -327.0
+offset_right = 327.0
 offset_bottom = 286.0
-grow_horizontal = 0
 theme = ExtResource("1_ak1qb")
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16

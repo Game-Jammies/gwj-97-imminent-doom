@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cdbp6m8jqwplu"]
 
-[ext_resource type="Texture2D" uid="uid://dkp46yu5s6sff" path="res://art/Checkbox-Sheet.png" id="1_3qm7i"]
-[ext_resource type="Script" uid="uid://xkre46exnp6o" path="res://Task/task.gd" id="1_dvyfb"]
-[ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="2_ct837"]
+[ext_resource type="Script" uid="uid://xkre46exnp6o" path="res://Task/taskInfo.gd" id="1_2t6rt"]
+[ext_resource type="Texture2D" uid="uid://dkp46yu5s6sff" path="res://art/Checkbox-Sheet.png" id="2_b6e47"]
+[ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_pnp7r"]
 
-[node name="Task" type="MarginContainer" unique_id=1101828838]
+[node name="TaskInfo" type="MarginContainer" unique_id=1101828838]
 offset_right = 141.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
-script = ExtResource("1_dvyfb")
+script = ExtResource("1_2t6rt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1595339130]
 layout_mode = 2
@@ -23,7 +23,7 @@ size_flags_horizontal = 3
 [node name="Checkbox" type="Sprite2D" parent="HBoxContainer/Container" unique_id=1537065739]
 unique_name_in_owner = true
 scale = Vector2(2, 2)
-texture = ExtResource("1_3qm7i")
+texture = ExtResource("2_b6e47")
 centered = false
 hframes = 2
 
@@ -31,5 +31,5 @@ hframes = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("2_ct837")
+theme = ExtResource("3_pnp7r")
 text = "Task info"

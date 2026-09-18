@@ -1,4 +1,4 @@
-class_name Task extends MarginContainer
+class_name TaskInfo extends MarginContainer
 ## TODO: We will need a script that has a dictionary of all the tasks 
 
 @onready var checkbox := %Checkbox
