@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hj4kpo0gsd08"]
 
-[ext_resource type="Texture2D" uid="uid://dqhc4x2bx7qch" path="res://art/Kitchen.png" id="1_iw0c1"]
+[ext_resource type="Texture2D" uid="uid://db7q7yril5vpy" path="res://art/bedroom.png" id="1_tbfo5"]
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_iw0c1")
+texture = ExtResource("1_tbfo5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer" unique_id=541148555]
 color = Color(0.35157788, 0.5433044, 0.90404904, 1)
