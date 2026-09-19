@@ -12,6 +12,7 @@ enum States {
 var current_state = States.CLOSED
 
 func _ready() -> void:
+	super()
 	trash_bag.visible = false
 
 ## Overrides the SelectableArea _on_click() function
