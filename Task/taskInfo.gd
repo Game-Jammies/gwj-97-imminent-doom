@@ -1,15 +1,27 @@
 class_name TaskInfo extends MarginContainer
-## TODO: We will need a script that has a dictionary of all the tasks 
 
 @onready var checkbox := %Checkbox
 @onready var label := %Label
 
 enum task_status {PENDING, DONE}
 
-func _init(message: String) -> void:
+@export var message: String = "Task info"
+
+var status := task_status.PENDING
+
+
+func _ready() -> void:
 	label.text = message
-	checkbox.frame = task_status.PENDING
+	checkbox.frame = status
+
+
+func set_message(new_message: String) -> void:
+	message = new_message
+	if is_node_ready():
+		label.text = message
 
 
 func complete_task() -> void:
-	checkbox.frame = task_status.DONE
+	status = task_status.DONE
+	if is_node_ready():
+		checkbox.frame = status
