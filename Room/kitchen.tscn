@@ -68,7 +68,7 @@ frame = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DishesSystem/Dishes" unique_id=1304192921]
 visible = false
-polygon = PackedVector2Array(1.8792787, -15.742588, -6.1207213, -16.492588, -18.620722, -12.242588, -25.370722, -4.4925876, -21.620722, 7.7574124, -15.120722, 14.257412, 16.629278, 14.257412, 24.629278, 7.0074124, 25.629278, -1.2425876, 19.629278, -9.492588)
+polygon = PackedVector2Array(10, 0, 0, 0, -7, -6, -14, -6, -29, -0.25, -33.5, 7, -25, 24, 10, 24, 17, 17, 17, 7)
 
 [node name="Faucet" type="Area2D" parent="DishesSystem" unique_id=735205022]
 unique_name_in_owner = true
