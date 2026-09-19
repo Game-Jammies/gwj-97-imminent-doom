@@ -4,15 +4,15 @@
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1547853291]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=878655165]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=878655165]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_tbfo5")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer" unique_id=541148555]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=541148555]
 color = Color(0.35157788, 0.5433044, 0.90404904, 1)
