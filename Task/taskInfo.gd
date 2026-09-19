@@ -3,11 +3,18 @@ class_name TaskInfo extends MarginContainer
 
 @onready var checkbox := %Checkbox
 @onready var label := %Label
+var start_message: String = "uninitialized"
 
-enum task_status {PENDING, DONE}
+enum task_status {
+	PENDING = 0, 
+	DONE = 1,
+}
 
-func _init(message: String) -> void:
-	label.text = message
+func _init(message: String = "default message") -> void:
+	start_message = message
+
+func _ready() -> void:
+	label.text = start_message
 	checkbox.frame = task_status.PENDING
 
 
