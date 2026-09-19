@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxmu632w4i6rx"]
+
+[ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="1_mdry6"]
+[ext_resource type="Texture2D" uid="uid://4llmmyb7jkl" path="res://art/FridgeFix 1n2.png" id="2_b5t7s"]
+
+[node name="Fridge" type="Area2D" unique_id=819257898]
+scale = Vector2(4, 4)
+script = ExtResource("1_mdry6")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=209954504]
+position = Vector2(160.75, 41)
+texture = ExtResource("2_b5t7s")
+vframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1094050108]
+position = Vector2(-8.499999, 9.000002)
+polygon = PackedVector2Array(145.5, -58.5, 145.5, 95.75, 232.5, 95.75, 232.25, -59)
