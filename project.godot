@@ -35,6 +35,10 @@ folder_colors={
 "res://art/": "red"
 }
 
+[gui]
+
+theme/custom="uid://d02due3u63cqb"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
