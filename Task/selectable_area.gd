@@ -33,8 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_click() -> void: 
 	# Temporary default behavior. Might not be included in our final implementation.
-	var total_frames = _sprite.hframes * _sprite.vframes
-	if _sprite.frame + 1 >= total_frames:
-		_sprite.frame = 0
-	else:
-		_sprite.frame += 1
+	#var total_frames = _sprite.hframes * _sprite.vframes
+	#if _sprite.frame + 1 >= total_frames:
+		#_sprite.frame = 0
+	#else:
+		#_sprite.frame += 1
+	pass
