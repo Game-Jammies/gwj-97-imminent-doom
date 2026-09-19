@@ -6,6 +6,7 @@ extends Node2D
 @onready var go_to_bedroom_button := %GoToBedroom
 @onready var bedroom := %Bedroom
 @onready var kitchen := %KitchenRoom
+@onready var bedtime_popup: PopupPanel = %BedtimePopup
 
 ## Dictionary with all of the task names, and whether they have been completed
 var tasks: Dictionary[String, bool] = {
@@ -27,9 +28,14 @@ func _ready() -> void:
 	pass
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var t = int(timer.time_left)
-	timer_label.text = "%d:%02d" % [t / 60, t % 60]
+	timer_label.text = "%d:%02d" % [int(t / 60.0), t % 60]
+
+
+func _show_bedtime_popup() -> void:
+	bedtime_popup.popup_centered()
+
 
 # The player goes to bed
 func _on_player_sleeps() -> void:

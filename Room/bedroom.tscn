@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://hj4kpo0gsd08"]
 
-[ext_resource type="Texture2D" uid="uid://db7q7yril5vpy" path="res://art/bedroom.png" id="1_tbfo5"]
+[ext_resource type="Script" uid="uid://dc62gts8cmrgt" path="res://Room/bedroom.gd" id="1_ovh1h"]
+[ext_resource type="Script" uid="uid://cmbrtu3u6c3tx" path="res://Task/bed.gd" id="2_46i3u"]
+[ext_resource type="Texture2D" uid="uid://y65yk0kk63ps" path="res://art/bedroomupdate.png" id="2_iuw78"]
+[ext_resource type="Texture2D" uid="uid://b56hfiuojjcxq" path="res://art/bed.png" id="3_46i3u"]
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=878655165]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_tbfo5")
+script = ExtResource("1_ovh1h")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=541148555]
 color = Color(0.35157788, 0.5433044, 0.90404904, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=608287085]
+position = Vector2(960, 540)
+scale = Vector2(4, 4)
+texture = ExtResource("2_iuw78")
+
+[node name="Bed" type="Area2D" parent="." unique_id=819257898]
+unique_name_in_owner = true
+position = Vector2(396, 694)
+scale = Vector2(4, 4)
+script = ExtResource("2_46i3u")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed" unique_id=678025312]
+texture = ExtResource("3_46i3u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bed" unique_id=1094050108]
+visible = false
+polygon = PackedVector2Array(-96, -84, -96, -16, -40, 96, 76, 96, 76, 44, 73, 38, 57, 38, 14, -48, 14, -78, 11, -84)

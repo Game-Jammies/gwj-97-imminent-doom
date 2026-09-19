@@ -6,8 +6,54 @@
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://hj4kpo0gsd08" path="res://Room/bedroom.tscn" id="5_7jktm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vowut"]
+bg_color = Color(3.6098065e-08, 0.113559164, 0.24147996, 1)
+
 [node name="Game" type="Node2D" unique_id=1044403714]
 script = ExtResource("1_e2o6t")
+
+[node name="BedtimePopup" type="PopupPanel" parent="." unique_id=1864108992]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Sleepytime"
+initial_position = 2
+size = Vector2i(353, 124)
+visible = true
+theme = ExtResource("3_fc0e3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vowut")
+
+[node name="MarginContainer" type="MarginContainer" parent="BedtimePopup" unique_id=406448004]
+offset_right = 353.0
+offset_bottom = 124.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BedtimePopup/MarginContainer" unique_id=733115564]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="BedtimePopup/MarginContainer/VBoxContainer" unique_id=662088322]
+layout_mode = 2
+text = "Get into bed for the night?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BedtimePopup/MarginContainer/VBoxContainer" unique_id=771609259]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="YesButton" type="Button" parent="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2140908644]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=735157401]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=413447422]
 layer = 50
@@ -61,6 +107,10 @@ unique_name_in_owner = true
 wait_time = 180.0
 one_shot = true
 
+[connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_player_sleeps"]
+[connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="BedtimePopup" method="hide"]
+[connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="BedtimePopup" method="hide"]
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
+[connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

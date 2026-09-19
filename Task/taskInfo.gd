@@ -2,26 +2,20 @@ class_name TaskInfo extends MarginContainer
 
 @onready var checkbox := %Checkbox
 @onready var label := %Label
+var start_message: String = "uninitialized"
 
-enum task_status {PENDING, DONE}
+enum task_status {
+	PENDING = 0, 
+	DONE = 1,
+}
 
-@export var message: String = "Task info"
-
-var status := task_status.PENDING
-
+func _init(message: String = "default message") -> void:
+	start_message = message
 
 func _ready() -> void:
-	label.text = message
-	checkbox.frame = status
-
-
-func set_message(new_message: String) -> void:
-	message = new_message
-	if is_node_ready():
-		label.text = message
+	label.text = start_message
+	checkbox.frame = task_status.PENDING
 
 
 func complete_task() -> void:
-	status = task_status.DONE
-	if is_node_ready():
-		checkbox.frame = status
+	checkbox.frame = task_status.DONE
