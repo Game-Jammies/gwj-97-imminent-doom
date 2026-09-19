@@ -1,6 +1,8 @@
 class_name Trash extends SelectableArea
 
 @onready var trash_bag := $TrashBag
+@onready var can_collision_polygon := $CanCollisionPolygon
+
 
 enum States {
 	CLOSED = 0, # Trash can is closed
@@ -11,9 +13,6 @@ enum States {
 
 var current_state = States.CLOSED
 
-func _ready() -> void:
-	super()
-	trash_bag.visible = false
 
 ## Overrides the SelectableArea _on_click() function
 func _on_click() -> void:
@@ -24,4 +23,6 @@ func _on_click() -> void:
 	elif current_state == States.OPEN:
 		current_state = States.EMPTY
 		_sprite.frame = 2
-		trash_bag.visible = true
+		can_collision_polygon.disabled = true
+		trash_bag.enable()
+		
