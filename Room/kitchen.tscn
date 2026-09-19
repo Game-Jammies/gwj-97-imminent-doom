@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db4powdto05pu" path="res://art/Chicken 1n2.png" id="3_ptvf2"]
 [ext_resource type="Texture2D" uid="uid://d35oq2v8iv8g7" path="res://art/Dishes.png" id="4_4ddva"]
 [ext_resource type="Texture2D" uid="uid://4llmmyb7jkl" path="res://art/FridgeFix 1n2.png" id="5_ptvf2"]
+[ext_resource type="PackedScene" uid="uid://bnrr08rsys1pl" path="res://Task/trash.tscn" id="6_v5axh"]
 
 [node name="Kitchen" type="Node2D" unique_id=95437799]
 
@@ -58,3 +59,6 @@ vframes = 2
 visible = false
 position = Vector2(-8.499999, 9.000002)
 polygon = PackedVector2Array(145.5, -58.5, 145.5, 95.75, 232.5, 95.75, 232.25, -59)
+
+[node name="Trash" parent="." unique_id=614751611 instance=ExtResource("6_v5axh")]
+position = Vector2(200, 824)
