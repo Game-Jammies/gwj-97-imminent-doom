@@ -22,7 +22,7 @@ offset_top = -15.5
 offset_bottom = 15.5
 grow_horizontal = 0
 grow_vertical = 2
-text = "Start"
+text = "Bedroom"
 
 [node name="TodoList" parent="CanvasLayer" unique_id=910694781 instance=ExtResource("2_feb5d")]
 
