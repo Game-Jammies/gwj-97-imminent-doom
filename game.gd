@@ -20,6 +20,12 @@ var tasks: Dictionary[String, bool] = {
 	"TurnOffLight": false, # Turn off the bedroom lamp
 }
 
+func finish_trash(): tasks["Trash"] = true
+func finish_chicken(): tasks["Chicken"] = true
+func finish_feed_dog(): tasks["FeedDog"] = true
+func finish_dishes(): tasks["WashDishes"] = true
+func finish_light(): tasks["TurnOffLight"] = true
+
 
 func _ready() -> void:
 	kitchen.visible = false
@@ -47,9 +53,9 @@ func _register_selectable_areas() -> void:
 				selectable_areas.append(child)
 			else:
 				rec.call(child, rec)
-	
 	# this is a functional programming trick that lets you call a lambda recursively
 	register_recursive.call(self, register_recursive)
+
 
 # The player goes to bed
 func _on_player_sleeps() -> void:
@@ -76,7 +82,6 @@ func _on_go_to_bedroom_pressed() -> void:
 	kitchen.visible = false
 	go_to_kitchen_button.visible = true
 	Global.end_transition()
-	
 
 
 func _on_go_to_kitchen_pressed() -> void:

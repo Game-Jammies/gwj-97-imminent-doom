@@ -111,5 +111,6 @@ one_shot = true
 [connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="BedtimePopup" method="hide"]
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
+[connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
