@@ -2,7 +2,8 @@ extends Node
 
 @onready var transition_rect := %SceneTransitionRect
 var is_transitioning: bool = false
-@export var room_container: Node
+	
+
 
 func goto_scene(path: String):
 	# Prevent inputs when transitioning
@@ -32,3 +33,16 @@ func _swap_scene(path: String):
 	get_tree().root.add_child(current_scene)
 	
 	get_tree().current_scene = current_scene
+
+
+func start_transition() -> void:
+	if is_transitioning:
+		return
+	is_transitioning = true
+	get_tree().paused = true
+	await transition_rect.fade_in()
+
+func end_transition() -> void:
+	await transition_rect.fade_out()
+	get_tree().paused = false
+	is_transitioning = false
