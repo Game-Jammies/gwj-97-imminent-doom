@@ -3,6 +3,9 @@ class_name Tasks extends VBoxContainer
 var timePassed = 0
 var note = ""
 
+func noteGet(i: String):
+	note = i
+
 func _process(delta: float) -> void:
 	timePassed += 1000 * delta
 	if timePassed > 1000:
