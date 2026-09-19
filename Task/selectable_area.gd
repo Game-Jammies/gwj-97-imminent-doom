@@ -1,5 +1,7 @@
 class_name SelectableArea extends Area2D
 
+signal area_clicked()
+
 @onready var _sprite = $Sprite2D
 var is_in_menu: bool = false
 var _is_hovering: bool = false
@@ -22,8 +24,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_on_click()
+			area_clicked.emit()
 
 func _on_click() -> void: 
+	# Temporary default behavior. Might not be included in our final implementation.
 	var total_frames = _sprite.hframes * _sprite.vframes
 	if _sprite.frame + 1 >= total_frames:
 		_sprite.frame = 0

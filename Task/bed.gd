@@ -1,6 +1,5 @@
-class_name Bed extends SelectableArea
+extends SelectableArea
 
-signal request_bedtime()
-
-func _on_click() -> void: 
-	request_bedtime.emit()
+# Just tells the on_click function not to do the default behavior.
+# Can be remmoved if we get rid of SelectableArea's default on_click implementation.
+func _on_click() -> void: pass
