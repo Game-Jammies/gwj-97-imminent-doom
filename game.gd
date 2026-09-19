@@ -8,6 +8,9 @@ extends Node2D
 @onready var kitchen := %KitchenRoom
 @onready var bedtime_popup: PopupPanel = %BedtimePopup
 
+## A list containing all the selectable objects
+var selectable_areas: Array[SelectableArea] = []
+
 ## Dictionary with all of the task names, and whether they have been completed
 var tasks: Dictionary[String, bool] = {
 	"Trash" : false, # Take out the trash
@@ -24,9 +27,9 @@ func _ready() -> void:
 	bedroom.visible = true
 	go_to_kitchen_button.visible = true
 	timer_label.text = str(timer.time_left)
+	_register_selectable_areas()
 	timer.start()
-	pass
-	
+
 
 func _process(_delta: float) -> void:
 	var t = int(timer.time_left)
@@ -36,6 +39,17 @@ func _process(_delta: float) -> void:
 func _show_bedtime_popup() -> void:
 	bedtime_popup.popup_centered()
 
+
+func _register_selectable_areas() -> void:
+	var register_recursive = func(node: Node, rec):
+		for child in node.get_children():
+			if is_instance_of(child, SelectableArea):
+				selectable_areas.append(child)
+			else:
+				rec.call(child, rec)
+	
+	# this is a functional programming trick that lets you call a lambda recursively
+	register_recursive.call(self, register_recursive)
 
 # The player goes to bed
 func _on_player_sleeps() -> void:
