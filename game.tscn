@@ -4,25 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://k848il4jv0yg" path="res://Room/kitchen.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bs4ynj7ucsjg5" path="res://Task/todo_list.tscn" id="2_feb5d"]
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://hj4kpo0gsd08" path="res://Room/bedroom.tscn" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1044403714]
 script = ExtResource("1_e2o6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=413447422]
 layer = 50
-
-[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=895302776]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Bedroom"
 
 [node name="TodoList" parent="CanvasLayer" unique_id=910694781 instance=ExtResource("2_feb5d")]
 
@@ -40,14 +28,39 @@ theme_override_font_sizes/normal_font_size = 42
 text = "3:00"
 fit_content = true
 
+[node name="GoToKitchen" type="Button" parent="CanvasLayer" unique_id=776826030]
+unique_name_in_owner = true
+offset_left = 1665.0
+offset_top = 985.0
+offset_right = 1833.0
+offset_bottom = 1027.0
+theme = ExtResource("3_fc0e3")
+text = "Go To Kitchen"
+
+[node name="GoToBedroom" type="Button" parent="CanvasLayer" unique_id=2114767907]
+unique_name_in_owner = true
+visible = false
+offset_left = 1717.0
+offset_top = 738.0
+offset_right = 1904.0
+offset_bottom = 780.0
+theme = ExtResource("3_fc0e3")
+text = "Go To Bedroom"
+
 [node name="RoomContainer" type="Node" parent="." unique_id=1676846379]
 
 [node name="KitchenRoom" parent="RoomContainer" unique_id=95437799 instance=ExtResource("2_e2o6t")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Bedroom" parent="RoomContainer" unique_id=1803660019 instance=ExtResource("5_7jktm")]
+unique_name_in_owner = true
 
 [node name="Timer" type="Timer" parent="." unique_id=322851692]
 unique_name_in_owner = true
 wait_time = 180.0
 one_shot = true
 
-[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
+[connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
