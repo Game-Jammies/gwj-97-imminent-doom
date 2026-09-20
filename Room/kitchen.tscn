@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cm5r4c8xjv7fa" path="res://Room/kitchen.gd" id="1_vibfp"]
 [ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="2_uhry3"]
 [ext_resource type="Texture2D" uid="uid://db4powdto05pu" path="res://art/Chicken 1n2.png" id="3_ptvf2"]
+[ext_resource type="Script" uid="uid://ckrbau45shj8i" path="res://Room/chicken_system.gd" id="3_v0mly"]
 [ext_resource type="Texture2D" uid="uid://se4l0lipgc0e" path="res://art/Dishes.png" id="4_4ddva"]
 [ext_resource type="Script" uid="uid://btowxcjoq77n5" path="res://Task/dishes_system.gd" id="5_lmlt5"]
 [ext_resource type="Texture2D" uid="uid://4llmmyb7jkl" path="res://art/FridgeFix 1n2.png" id="5_ptvf2"]
@@ -19,39 +20,45 @@ size = Vector2(293, 545)
 script = ExtResource("1_vibfp")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1068628859]
+z_index = -5
 position = Vector2(960, 540)
 scale = Vector2(4, 4)
 texture = ExtResource("1_6co04")
 
-[node name="Chicken" type="Area2D" parent="." unique_id=1197986478]
-visible = false
-position = Vector2(1790, 445)
+[node name="ChickenSystem" type="Node2D" parent="." unique_id=2100054396]
+script = ExtResource("3_v0mly")
+chicken_offset = Vector2(-276, -117)
+
+[node name="Chicken" type="Area2D" parent="ChickenSystem" unique_id=1197986478]
+unique_name_in_owner = true
+position = Vector2(1192, 445)
 scale = Vector2(4, 4)
 script = ExtResource("2_uhry3")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
-[node name="Sprite2D" type="Sprite2D" parent="Chicken" unique_id=1544074985]
+[node name="Sprite2D" type="Sprite2D" parent="ChickenSystem/Chicken" unique_id=1544074985]
+z_index = 5
 texture = ExtResource("3_ptvf2")
 hframes = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chicken" unique_id=1671328100]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChickenSystem/Chicken" unique_id=1671328100]
 visible = false
 position = Vector2(-5.0000143, -6.4999986)
 polygon = PackedVector2Array(5.506942, -4.567323, 15.006942, -19.567324, 0.5069418, -25.817324, -14.993058, -19.567324, -5.993058, -4.317323, -17.5, 12.25, -18.25, 38, 18.5, 38.5, 17.5, 9.75)
 
-[node name="Fridge" type="Area2D" parent="." unique_id=819257898]
-visible = false
+[node name="Fridge" type="Area2D" parent="ChickenSystem" unique_id=819257898]
+unique_name_in_owner = true
 position = Vector2(713, 360)
 scale = Vector2(4, 4)
 script = ExtResource("2_uhry3")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
-[node name="Sprite2D" type="Sprite2D" parent="Fridge" unique_id=209954504]
+[node name="Sprite2D" type="Sprite2D" parent="ChickenSystem/Fridge" unique_id=209954504]
 position = Vector2(160.75, 41)
 texture = ExtResource("5_ptvf2")
 vframes = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fridge" unique_id=1094050108]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChickenSystem/Fridge" unique_id=1094050108]
 visible = false
 position = Vector2(-8.499999, 9.000002)
 polygon = PackedVector2Array(145.5, -58.5, 145.5, 95.75, 232.5, 95.75, 232.25, -59)
@@ -112,6 +119,9 @@ visible = false
 position = Vector2(1774.5, 352.5)
 shape = SubResource("RectangleShape2D_pgqhp")
 
+[connection signal="chicken_done" from="ChickenSystem" to="." method="emit_chicken_done"]
+[connection signal="area_clicked" from="ChickenSystem/Chicken" to="ChickenSystem" method="next_state"]
+[connection signal="area_clicked" from="ChickenSystem/Fridge" to="ChickenSystem" method="next_state"]
 [connection signal="dishes_done" from="DishesSystem" to="." method="emit_dishes_done"]
 [connection signal="area_clicked" from="DishesSystem/Dishes" to="DishesSystem" method="next_state"]
 [connection signal="area_clicked" from="DishesSystem/Faucet" to="DishesSystem" method="next_state"]
