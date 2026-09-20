@@ -4,10 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://k848il4jv0yg" path="res://Room/kitchen.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bs4ynj7ucsjg5" path="res://Task/todo_list.tscn" id="2_feb5d"]
 [ext_resource type="Theme" uid="uid://d02due3u63cqb" path="res://chancla.tres" id="3_fc0e3"]
+[ext_resource type="VideoStream" uid="uid://dg8s830wfh0id" path="res://art/Opening Cutscene.ogv" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://hj4kpo0gsd08" path="res://Room/bedroom.tscn" id="5_7jktm"]
+[ext_resource type="VideoStream" uid="uid://bq2yqi3dh0mxu" path="res://art/WinCutscene.ogv" id="5_eow3j"]
+[ext_resource type="Shader" uid="uid://b1lpa03o43lih" path="res://game.gdshader" id="6_vef74"]
+[ext_resource type="VideoStream" uid="uid://bdri64i12f2o7" path="res://art/LoseCutscene.ogv" id="7_hve3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vowut"]
 bg_color = Color(3.6098065e-08, 0.113559164, 0.24147996, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1lj4"]
+shader = ExtResource("6_vef74")
 
 [node name="Game" type="Node2D" unique_id=1044403714]
 script = ExtResource("1_e2o6t")
@@ -92,6 +99,40 @@ offset_bottom = 780.0
 theme = ExtResource("3_fc0e3")
 text = "Go To Bedroom"
 
+[node name="OpeningCut" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=423892745]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("4_ryrav")
+expand = true
+
+[node name="WinCut" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=1772138802]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("5_eow3j")
+expand = true
+
+[node name="LoseCut" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=1853582410]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b1lj4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("7_hve3p")
+expand = true
+
 [node name="RoomContainer" type="Node" parent="." unique_id=1676846379]
 
 [node name="KitchenRoom" parent="RoomContainer" unique_id=95437799 instance=ExtResource("2_e2o6t")]
@@ -111,6 +152,7 @@ one_shot = true
 [connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="BedtimePopup" method="hide"]
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
+[connection signal="finished" from="CanvasLayer/OpeningCut" to="." method="_on_video_stream_player_finished"]
 [connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
