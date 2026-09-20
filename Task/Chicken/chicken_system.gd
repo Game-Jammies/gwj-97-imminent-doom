@@ -1,6 +1,7 @@
 class_name ChickenSystem extends Node2D
 
 signal chicken_done()
+signal chicken_next_step()
 
 @onready var fridge := %Fridge
 @onready var chicken := %Chicken
@@ -21,6 +22,7 @@ func _ready() -> void:
 func next_state() -> void:
 	if state != States.DONE:
 		set_state(state + 1)
+		chicken_next_step.emit()
 
 
 func set_state(new_state: States) -> void: 

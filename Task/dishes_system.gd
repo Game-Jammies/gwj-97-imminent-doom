@@ -27,7 +27,6 @@ func next_state() -> void:
 	if state != DishesState.STACKED:
 		set_state(state + 1)
 		dishes_next_step.emit()
-		print("dishnext")
 
 
 func set_state(new_state: DishesState) -> void: 

@@ -6,6 +6,8 @@ signal dish_next_step()
 signal trash_next_step()
 signal trash_done()
 signal chicken_done()
+signal chicken_next_step()
+signal dog_food_done()
 
 func emit_dishes_done():
 	dishes_done.emit()
@@ -32,4 +34,8 @@ func emit_chicken_done() -> void:
 
 
 func _on_dog_system_dog_fed_done() -> void:
-	pass # Replace with function body.
+	dog_food_done.emit()
+
+
+func _on_chicken_next_step() -> void:
+	chicken_next_step.emit()

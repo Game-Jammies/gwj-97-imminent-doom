@@ -7,6 +7,11 @@ extends Node2D
 @onready var bedroom := %Bedroom
 @onready var kitchen := %KitchenRoom
 @onready var bedtime_popup: PopupPanel = %BedtimePopup
+@onready var opening_cut:= %OpeningCut
+@onready var win_cut:= %WinCut
+@onready var lose_cut:= %LoseCut
+@onready var try_again_button := %TryAgainButton
+
 
 ## A list containing all the selectable objects
 var selectable_areas: Array[SelectableArea] = []
@@ -18,9 +23,14 @@ var tasks: Dictionary[String, bool] = {
 	"FeedDog" : false, # Feed the dog
 	"WashDishes": false, # Wash the dishes
 	"DoHomework": false, # Do the homework
-	"Laundry": false, # Put away the laundry
-	"TurnOffLight": false, # Turn off the bedroom lamp
+	"Lamp": false, # Turn off the bedroom lamp
+	"Laundry": false, # Do the laundry
+	"CleanCards": false, # Put the cards away
+	"CleanToys": false, # Put the toys away
 }
+
+
+
 
 func finish_trash(): tasks["Trash"] = true
 func finish_chicken(): tasks["Chicken"] = true
@@ -28,10 +38,18 @@ func finish_feed_dog(): tasks["FeedDog"] = true
 func finish_dishes(): tasks["WashDishes"] = true
 func finish_homework(): tasks["DoHomework"] = true
 func finish_laundry(): tasks["Laundry"] = true
-func finish_light(): tasks["TurnOffLight"] = true
+func finish_cards(): tasks["CleanCards"] = true
+func finish_toys(): tasks["CleanToys"] = true
 
+## The lamp is a special case where the task can be undone if the light is toggled back on
+func lamp_off(): tasks["Lamp"] = true
+func lamp_on(): tasks["Lamp"] = false
 
 func _ready() -> void:
+	opening_cut.play()
+	
+func _on_video_stream_player_finished():
+	opening_cut.visible = false
 	kitchen.visible = false
 	go_to_bedroom_button.visible = false
 	bedroom.visible = true
@@ -69,13 +87,13 @@ func _on_player_sleeps() -> void:
 			win = false
 			break
 	if win:
-		print("You survived!")
+		win_cut.play()
 	else:
-		print("You forgot something! You're grounded!")
+		lose_cut.play()
 
 
 func _on_timer_timeout() -> void:
-	print("Time ran out! You're grounded!")
+	lose_cut.play()
 	pass 
 
 
@@ -95,3 +113,11 @@ func _on_go_to_kitchen_pressed() -> void:
 	bedroom.visible = false
 	go_to_bedroom_button.visible = true
 	Global.end_transition()
+
+# Cutscene finished
+func _on_cut_finished() -> void:
+	try_again_button.show()
+
+
+func _on_try_again_button_pressed() -> void:
+	pass # Replace with function body.

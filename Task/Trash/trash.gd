@@ -1,5 +1,5 @@
 class_name Trash extends SelectableArea
-signal trash_done
+signal trash_done()
 signal hovering_door
 signal trash_next_step
 @onready var trash_bag := $TrashBag
