@@ -122,6 +122,7 @@ shape = SubResource("RectangleShape2D_pgqhp")
 
 [node name="TrashNote" parent="." unique_id=1607592638 instance=ExtResource("2_tfl01")]
 position = Vector2(1105, 632)
+sprite_frame = 1
 message = "Trash"
 
 [node name="DishesNote" parent="." unique_id=2146877164 instance=ExtResource("2_tfl01")]

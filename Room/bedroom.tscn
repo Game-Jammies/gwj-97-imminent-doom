@@ -36,9 +36,10 @@ position = Vector2(761, 331)
 message = "FeedDog"
 
 [node name="ChickenNote" parent="." unique_id=1145145279 instance=ExtResource("5_jv7ag")]
-position = Vector2(312, 928)
+position = Vector2(1406, 635)
 collision_layer = 2
 collision_mask = 2
+sprite_frame = 2
 message = "Chicken"
 
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
