@@ -35,3 +35,10 @@ func _on_dishes_next_step() -> void:
 		
 	dishTracker += 1
 	
+func _on_trash_next_step() -> void:
+	match trashTracker:
+		0: %Trash.update_message("Remove Trash Bag")
+		1: %Trash.update_message("Take Trash Out Door")
+		2: %Trash.complete_task()
+		
+	trashTracker += 1

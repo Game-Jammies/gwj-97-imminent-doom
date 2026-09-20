@@ -122,10 +122,11 @@ position = Vector2(337, 120)
 message = "WashDishes"
 
 [connection signal="dishes_done" from="DishesSystem" to="." method="emit_dishes_done"]
-[connection signal="next_step" from="DishesSystem" to="." method="_on_dishes_system_next_step"]
+[connection signal="dishes_next_step" from="DishesSystem" to="." method="_on_dishes_system_next_step"]
 [connection signal="area_clicked" from="DishesSystem/Dishes" to="DishesSystem" method="next_state"]
 [connection signal="area_clicked" from="DishesSystem/Faucet" to="DishesSystem" method="next_state"]
 [connection signal="hovering_door" from="Trash" to="Door" method="_on_trash_hovering_door"]
 [connection signal="trash_done" from="Trash" to="Door" method="_on_trash_trash_done"]
+[connection signal="trash_next_step" from="Trash" to="." method="_on_trash_next_step"]
 [connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
 [connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]

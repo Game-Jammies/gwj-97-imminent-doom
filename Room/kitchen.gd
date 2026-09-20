@@ -2,7 +2,8 @@ extends Node2D
 
 signal dishes_done()
 signal note_found(message: String)
-signal next_step()
+signal dish_next_step()
+signal trash_next_step()
 
 func emit_dishes_done():
 	dishes_done.emit()
@@ -14,5 +15,10 @@ func _on_note_note_found(message: String) -> void:
 
 
 func _on_dishes_system_next_step() -> void:
-	next_step.emit()
-	print("Next")
+	dish_next_step.emit()
+	print("DishNextKitchen")
+
+
+func _on_trash_next_step() -> void:
+	trash_next_step.emit()
+	print("TrashNextKitchen")
