@@ -4,6 +4,8 @@ signal request_bedtime()
 signal note_found(message: String)
 signal homework_next_step()
 signal homework_done()
+signal lamp_off()
+signal lamp_on()
 
 @onready var bed: SelectableArea = %Bed
 
@@ -22,3 +24,11 @@ func _on_homework_system_next_step() -> void:
 
 func _on_homework_done() -> void:
 	homework_done.emit()
+
+
+func _on_lamp_off() -> void:
+	lamp_off.emit()
+
+
+func _on_lamp_on() -> void:
+	lamp_on.emit()

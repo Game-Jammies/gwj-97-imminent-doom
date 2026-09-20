@@ -1,7 +1,6 @@
 class_name DogSystem extends Node2D
 
 signal dog_fed_done()
-signal dog_next_step()
 
 @onready var bowl: SelectableArea = %Bowl
 @onready var bag: Bag = %Bag
