@@ -29,7 +29,6 @@ func _on_click() -> void:
 		trash_bag.enable()
 		
 	trash_next_step.emit()
-	print("trashnext")
 
 
 func _on_trash_bag_trash_removed() -> void:
@@ -37,7 +36,6 @@ func _on_trash_bag_trash_removed() -> void:
 	_sprite.frame = 3
 	trash_next_step.emit()
 	trash_done.emit()
-	print("trashnext")
 
 
 func _on_trash_bag_hovering_door() -> void:
