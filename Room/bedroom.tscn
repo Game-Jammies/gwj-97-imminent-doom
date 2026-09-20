@@ -97,10 +97,12 @@ texture = ExtResource("9_1r7fo")
 vframes = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Basket" unique_id=629065551]
+visible = false
 polygon = PackedVector2Array(1451, 859, 1451, 959, 1489, 1036, 1671, 1037, 1671, 945, 1635, 851)
 
 [node name="Clothes" type="Area2D" parent="LaundrySystem" unique_id=780112985]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("3_ovh1h")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
@@ -110,6 +112,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("10_60xl8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Clothes" unique_id=555650251]
+visible = false
 polygon = PackedVector2Array(1570, 510, 1520, 526, 1535, 558, 1459, 613, 1425, 722, 1488, 725, 1480, 809, 1522, 826, 1677, 824, 1718, 810, 1707, 725, 1764, 721, 1735, 617, 1655, 570, 1648, 550, 1675, 539, 1644, 505)
 
 [node name="Closet" type="Area2D" parent="LaundrySystem" unique_id=1605660992]
@@ -124,13 +127,16 @@ texture = ExtResource("11_2l6mg")
 vframes = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Closet" unique_id=930395944]
+visible = false
 polygon = PackedVector2Array(1828, 90, 1822, 744, 1918, 930, 1920, 264)
 
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
+[connection signal="homework_done" from="HomeworkSystem" to="." method="emit_homework_done"]
 [connection signal="homework_next_step" from="HomeworkSystem" to="." method="_on_homework_system_next_step"]
 [connection signal="area_clicked" from="HomeworkSystem/Folder" to="HomeworkSystem" method="next_state"]
 [connection signal="area_clicked" from="HomeworkSystem/Pencil" to="HomeworkSystem" method="next_state"]
+[connection signal="laundry_done" from="LaundrySystem" to="." method="emit_laundry_done"]
 [connection signal="area_clicked" from="LaundrySystem/Basket" to="LaundrySystem" method="next_state"]
 [connection signal="area_clicked" from="LaundrySystem/Clothes" to="LaundrySystem" method="next_state"]
 [connection signal="area_clicked" from="LaundrySystem/Closet" to="LaundrySystem" method="next_state"]

@@ -18,6 +18,7 @@ var tasks: Dictionary[String, bool] = {
 	"FeedDog" : false, # Feed the dog
 	"WashDishes": false, # Wash the dishes
 	"DoHomework": false, # Do the homework
+	"Laundry": false, # Put away the laundry
 	"TurnOffLight": false, # Turn off the bedroom lamp
 }
 
@@ -26,6 +27,7 @@ func finish_chicken(): tasks["Chicken"] = true
 func finish_feed_dog(): tasks["FeedDog"] = true
 func finish_dishes(): tasks["WashDishes"] = true
 func finish_homework(): tasks["DoHomework"] = true
+func finish_laundry(): tasks["Laundry"] = true
 func finish_light(): tasks["TurnOffLight"] = true
 
 
