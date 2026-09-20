@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="3_ovh1h"]
 [ext_resource type="PackedScene" uid="uid://6q7mg5wo3gti" path="res://Task/note.tscn" id="5_jv7ag"]
 [ext_resource type="Texture2D" uid="uid://08letifd77fa" path="res://art/Homework.png" id="6_d5wd5"]
-[ext_resource type="Script" uid="uid://bph3egg6tolld" path="res://Room/homework_system.gd" id="6_ghvr3"]
+[ext_resource type="Script" uid="uid://bph3egg6tolld" path="res://Task/homework_system.gd" id="6_ghvr3"]
 [ext_resource type="Texture2D" uid="uid://blifo107ujis1" path="res://art/Pencil.png" id="7_ghvr3"]
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
