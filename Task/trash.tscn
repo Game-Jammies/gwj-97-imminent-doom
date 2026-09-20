@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://draw25nykac76"]
+[gd_scene format=3 uid="uid://deyxmv1dwg571"]
 
 [ext_resource type="Texture2D" path="res://art/Trash.png" id="1_267jo"]
 [ext_resource type="Script" path="res://Task/trash.gd" id="1_jaaw3"]

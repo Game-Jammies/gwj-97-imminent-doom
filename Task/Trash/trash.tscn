@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://draw25nykac76"]
+
+[ext_resource type="Script" uid="uid://cuu021hu1i5bu" path="res://Task/Trash/trash.gd" id="1_yhibp"]
+[ext_resource type="Texture2D" uid="uid://13ttt6lsdwq8" path="res://art/Trash.png" id="2_os6rk"]
+[ext_resource type="Texture2D" uid="uid://bx2g5vkyar2k4" path="res://art/TrashBag.png" id="3_08vnc"]
+[ext_resource type="Script" uid="uid://y7krhy0g1ar" path="res://Task/Trash/trash_bag.gd" id="3_os6rk"]
+
+[node name="Trash" type="Area2D" unique_id=1162795809]
+script = ExtResource("1_yhibp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=14165276]
+scale = Vector2(4, 4)
+texture = ExtResource("2_os6rk")
+hframes = 4
+
+[node name="CanCollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=339468829]
+visible = false
+polygon = PackedVector2Array(-163, 41, -165, 258, 206, 259, 205, 43, 167, 23, 102, 11, -64, 11, -137, 27)
+
+[node name="TrashBag" type="Area2D" parent="." unique_id=1690231372]
+z_index = 20
+collision_mask = 8
+script = ExtResource("3_os6rk")
+
+[node name="Sprite2D" type="Sprite2D" parent="TrashBag" unique_id=462021467]
+unique_name_in_owner = true
+visible = false
+position = Vector2(29, -145)
+scale = Vector2(4, 4)
+texture = ExtResource("3_08vnc")
+
+[node name="BagCollisionPolygon" type="CollisionPolygon2D" parent="TrashBag" unique_id=174151446]
+unique_name_in_owner = true
+visible = false
+position = Vector2(29, -145)
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(-42.5, 15.25, -43.25, 36, -19.25, 59.75, 22.5, 59, 52, 26, 9.5, -26.5, 9.25, -36.75, 20, -44.25, 13.5, -63.5, -18.75, -64, -33.75, -39, -18.5, -31.25)
+
+[connection signal="area_clicked" from="." to="." method="_on_area_clicked"]
+[connection signal="hovering_door" from="TrashBag" to="." method="_on_trash_bag_hovering_door"]
+[connection signal="trash_removed" from="TrashBag" to="." method="_on_trash_bag_trash_removed"]

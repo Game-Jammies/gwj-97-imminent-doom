@@ -5,6 +5,7 @@ signal area_clicked()
 @onready var _sprite = $Sprite2D
 var is_in_menu: bool = false
 var _is_hovering: bool = false
+var _is_dragging: bool = false
 
 func _ready() -> void:
 	mouse_entered.connect(_hover_start)
@@ -26,10 +27,15 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 			_on_click()
 			area_clicked.emit()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
+		_is_dragging = false
+
 func _on_click() -> void: 
 	# Temporary default behavior. Might not be included in our final implementation.
-	var total_frames = _sprite.hframes * _sprite.vframes
-	if _sprite.frame + 1 >= total_frames:
-		_sprite.frame = 0
-	else:
-		_sprite.frame += 1
+	#var total_frames = _sprite.hframes * _sprite.vframes
+	#if _sprite.frame + 1 >= total_frames:
+		#_sprite.frame = 0
+	#else:
+		#_sprite.frame += 1
+	pass
