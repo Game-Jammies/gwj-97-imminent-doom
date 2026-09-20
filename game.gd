@@ -46,10 +46,20 @@ func lamp_off(): tasks["Lamp"] = true
 func lamp_on(): tasks["Lamp"] = false
 
 func _ready() -> void:
-	opening_cut.play()
-	
+	# On a retry we skip straight past the intro cutscene
+	if Global.skip_intro:
+		opening_cut.visible = false
+		_start_game()
+	else:
+		opening_cut.play()
+
+
 func _on_video_stream_player_finished():
 	opening_cut.visible = false
+	_start_game()
+
+
+func _start_game() -> void:
 	kitchen.visible = false
 	go_to_bedroom_button.visible = false
 	bedroom.visible = true
@@ -118,6 +128,8 @@ func _on_go_to_kitchen_pressed() -> void:
 func _on_cut_finished() -> void:
 	try_again_button.show()
 
-
+# Reset the game
 func _on_try_again_button_pressed() -> void:
-	pass # Replace with function body.
+	Global.skip_intro = false
+	get_tree().paused = false
+	get_tree().reload_current_scene()

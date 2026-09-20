@@ -2,6 +2,8 @@ extends Node
 
 @onready var transition_rect := %SceneTransitionRect
 var is_transitioning: bool = false
+## Set when the player retries so the intro cutscene is not replayed
+var skip_intro: bool = false
 	
 
 
