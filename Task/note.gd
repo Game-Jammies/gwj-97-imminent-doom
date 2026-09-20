@@ -1,11 +1,14 @@
-extends Node2D
+class_name Note extends SelectableArea
 
+signal note_found(message: String)
+@export var sprite_frame: int = 0
+@export var message: String = "Default"
+@onready var sprite = $Sprite2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_click() -> void:
+	hide()
+	note_found.emit(message)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void: 
+	super()
+	sprite.frame = sprite_frame

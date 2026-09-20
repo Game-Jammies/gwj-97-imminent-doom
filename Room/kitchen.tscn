@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqhc4x2bx7qch" path="res://art/Kitchen.png" id="1_6co04"]
 [ext_resource type="Script" uid="uid://cm5r4c8xjv7fa" path="res://Room/kitchen.gd" id="1_vibfp"]
+[ext_resource type="PackedScene" uid="uid://6q7mg5wo3gti" path="res://Task/note.tscn" id="2_tfl01"]
 [ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="2_uhry3"]
 [ext_resource type="Texture2D" uid="uid://db4powdto05pu" path="res://art/Chicken 1n2.png" id="3_ptvf2"]
 [ext_resource type="Script" uid="uid://ckrbau45shj8i" path="res://Room/chicken_system.gd" id="3_v0mly"]
@@ -119,12 +120,25 @@ visible = false
 position = Vector2(1774.5, 352.5)
 shape = SubResource("RectangleShape2D_pgqhp")
 
+[node name="TrashNote" parent="." unique_id=1607592638 instance=ExtResource("2_tfl01")]
+position = Vector2(1105, 632)
+sprite_frame = 1
+message = "Trash"
+
+[node name="DishesNote" parent="." unique_id=2146877164 instance=ExtResource("2_tfl01")]
+position = Vector2(337, 120)
+message = "WashDishes"
+
 [connection signal="chicken_done" from="ChickenSystem" to="." method="emit_chicken_done"]
 [connection signal="area_clicked" from="ChickenSystem/Chicken" to="ChickenSystem" method="next_state"]
 [connection signal="area_clicked" from="ChickenSystem/Fridge" to="ChickenSystem" method="next_state"]
 [connection signal="dishes_done" from="DishesSystem" to="." method="emit_dishes_done"]
+[connection signal="dishes_next_step" from="DishesSystem" to="." method="_on_dishes_system_next_step"]
 [connection signal="area_clicked" from="DishesSystem/Dishes" to="DishesSystem" method="next_state"]
 [connection signal="area_clicked" from="DishesSystem/Faucet" to="DishesSystem" method="next_state"]
 [connection signal="hovering_door" from="Trash" to="Door" method="_on_trash_hovering_door"]
 [connection signal="trash_done" from="Trash" to="." method="emit_trash_done"]
 [connection signal="trash_done" from="Trash" to="Door" method="_on_trash_trash_done"]
+[connection signal="trash_next_step" from="Trash" to="." method="_on_trash_next_step"]
+[connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
+[connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]
