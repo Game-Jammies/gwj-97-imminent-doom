@@ -58,6 +58,7 @@ text = "No"
 layer = 50
 
 [node name="TodoList" parent="CanvasLayer" unique_id=910694781 instance=ExtResource("2_feb5d")]
+unique_name_in_owner = true
 
 [node name="TimerLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1880124389]
 unique_name_in_owner = true
@@ -112,5 +113,6 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
 [connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
+[connection signal="note_found" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_kitchen_room_note_found"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
