@@ -114,11 +114,11 @@ position = Vector2(1774.5, 352.5)
 shape = SubResource("RectangleShape2D_pgqhp")
 
 [node name="TrashNote" parent="." unique_id=1607592638 instance=ExtResource("2_tfl01")]
-position = Vector2(1382, 541)
+position = Vector2(1105, 632)
 message = "Trash"
 
 [node name="DishesNote" parent="." unique_id=2146877164 instance=ExtResource("2_tfl01")]
-position = Vector2(1544, 240)
+position = Vector2(337, 120)
 message = "WashDishes"
 
 [connection signal="dishes_done" from="DishesSystem" to="." method="emit_dishes_done"]

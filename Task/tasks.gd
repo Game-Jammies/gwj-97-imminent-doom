@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	
 
 
-func _on_kitchen_room_note_found(message: String) -> void:
+func _on_room_note_found(message: String) -> void:
 	print("tasks")
 	match message:
 		"Chicken": %Chicken.show()

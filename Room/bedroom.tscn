@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://y65yk0kk63ps" path="res://art/bedroomupdate.png" id="2_iuw78"]
 [ext_resource type="Texture2D" uid="uid://b56hfiuojjcxq" path="res://art/bed.png" id="3_46i3u"]
 [ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="3_ovh1h"]
+[ext_resource type="PackedScene" uid="uid://6q7mg5wo3gti" path="res://Task/note.tscn" id="5_jv7ag"]
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 script = ExtResource("1_ovh1h")
@@ -29,3 +30,16 @@ texture = ExtResource("3_46i3u")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bed" unique_id=1094050108]
 visible = false
 polygon = PackedVector2Array(-96, -84, -96, -16, -40, 96, 76, 96, 76, 44, 73, 38, 57, 38, 14, -48, 14, -78, 11, -84)
+
+[node name="DogNote" parent="." unique_id=1607592638 instance=ExtResource("5_jv7ag")]
+position = Vector2(761, 331)
+message = "FeedDog"
+
+[node name="ChickenNote" parent="." unique_id=1145145279 instance=ExtResource("5_jv7ag")]
+position = Vector2(312, 928)
+collision_layer = 2
+collision_mask = 2
+message = "Chicken"
+
+[connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
+[connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
