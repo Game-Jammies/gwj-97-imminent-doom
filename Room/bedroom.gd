@@ -2,6 +2,7 @@ extends Node2D
 
 signal request_bedtime()
 signal note_found(message: String)
+signal homework_next_step()
 
 @onready var bed: SelectableArea = %Bed
 
@@ -13,3 +14,8 @@ func _ready() -> void:
 func _on_note_found(message: String) -> void:
 	note_found.emit(message)
 	print("Bedroom")
+
+
+func _on_homework_system_next_step() -> void:
+	homework_next_step.emit()
+	print("HomeworkNextBedroom")

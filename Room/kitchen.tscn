@@ -129,6 +129,10 @@ message = "Trash"
 position = Vector2(337, 120)
 message = "WashDishes"
 
+[node name="HomeworkNote" parent="." unique_id=981699611 instance=ExtResource("2_tfl01")]
+position = Vector2(397, 370)
+message = "DoHomework"
+
 [connection signal="chicken_done" from="ChickenSystem" to="." method="emit_chicken_done"]
 [connection signal="area_clicked" from="ChickenSystem/Chicken" to="ChickenSystem" method="next_state"]
 [connection signal="area_clicked" from="ChickenSystem/Fridge" to="ChickenSystem" method="next_state"]
@@ -142,3 +146,4 @@ message = "WashDishes"
 [connection signal="trash_next_step" from="Trash" to="." method="_on_trash_next_step"]
 [connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
 [connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]
+[connection signal="note_found" from="HomeworkNote" to="." method="_on_note_note_found"]

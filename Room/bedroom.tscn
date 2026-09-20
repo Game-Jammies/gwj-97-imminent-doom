@@ -80,5 +80,6 @@ polygon = PackedVector2Array(1256, 491, 1269, 480, 1340, 548, 1325, 561)
 
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
+[connection signal="homework_next_step" from="HomeworkSystem" to="." method="_on_homework_system_next_step"]
 [connection signal="area_clicked" from="HomeworkSystem/Folder" to="HomeworkSystem" method="next_state"]
 [connection signal="area_clicked" from="HomeworkSystem/Pencil" to="HomeworkSystem" method="next_state"]
