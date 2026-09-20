@@ -113,6 +113,7 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
 [connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
+[connection signal="next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_dishes_next_step"]
 [connection signal="note_found" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_room_note_found"]
 [connection signal="note_found" from="RoomContainer/Bedroom" to="CanvasLayer/TodoList" method="_on_room_note_found"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]

@@ -73,4 +73,4 @@ message = "Feed The Dog"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-message = "Do the Dishes"
+message = "Soak the Dishes"

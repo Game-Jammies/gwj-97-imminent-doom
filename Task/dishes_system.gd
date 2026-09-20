@@ -1,6 +1,7 @@
 class_name DishesSystem extends Node2D
 
 signal dishes_done()
+signal next_step()
 
 @onready var dishes: SelectableArea = %Dishes
 @onready var faucet: SelectableArea = %Faucet
@@ -25,6 +26,7 @@ func _ready() -> void:
 func next_state() -> void:
 	if state != DishesState.STACKED:
 		set_state(state + 1)
+		next_step.emit()
 
 
 func set_state(new_state: DishesState) -> void: 
