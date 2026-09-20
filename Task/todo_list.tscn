@@ -42,6 +42,12 @@ visible = false
 layout_mode = 2
 message = "Take Out The Chicken"
 
+[node name="Homework" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1101828838 instance=ExtResource("2_yx0p0")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+message = "Open The Homework"
+
 [node name="DogFood" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1797792208 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true
 visible = false

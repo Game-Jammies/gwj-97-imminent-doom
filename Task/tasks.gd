@@ -7,10 +7,13 @@ func _on_room_note_found(message: String) -> void:
 		"Trash": %Trash.show()
 		"FeedDog": %DogFood.show()
 		"WashDishes": %Dishes.show()
+		"DoHomework" : %Homework.show()
+		
 
 var dishTracker = 0
 var trashTracker = 0
 var chickenTracker = 0
+var homeworkTracker = 0
 
 func _on_dishes_next_step() -> void:
 	match dishTracker:
@@ -20,7 +23,7 @@ func _on_dishes_next_step() -> void:
 		3: %Dishes.complete_task()
 		
 	dishTracker += 1
-	
+		
 func _on_trash_next_step() -> void:
 	match trashTracker:
 		0: %Trash.update_message("Remove Trash Bag")
@@ -28,3 +31,10 @@ func _on_trash_next_step() -> void:
 		2: %Trash.complete_task()
 		
 	trashTracker += 1
+	
+func _on_homework_next_step() -> void:
+	match homeworkTracker:
+		0: %Homework.update_message("Do Homework")
+		1: %Homework.complete_task()
+		
+	homeworkTracker += 1

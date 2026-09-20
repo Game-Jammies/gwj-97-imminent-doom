@@ -140,6 +140,10 @@ message = "Trash"
 position = Vector2(337, 120)
 message = "WashDishes"
 
+[node name="HomeworkNote" parent="." unique_id=981699611 instance=ExtResource("2_tfl01")]
+position = Vector2(397, 370)
+message = "DoHomework"
+
 [node name="DogSystem" type="Node2D" parent="." unique_id=491143110]
 script = ExtResource("13_lxfto")
 
@@ -191,4 +195,5 @@ shape = SubResource("RectangleShape2D_ionpo")
 [connection signal="trash_next_step" from="Trash" to="." method="_on_trash_next_step"]
 [connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
 [connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]
+[connection signal="note_found" from="HomeworkNote" to="." method="_on_note_note_found"]
 [connection signal="dog_fed_done" from="DogSystem" to="." method="_on_dog_system_dog_fed_done"]
