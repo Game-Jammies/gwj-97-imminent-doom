@@ -10,9 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://blifo107ujis1" path="res://art/Pencil.png" id="7_ghvr3"]
 [ext_resource type="Texture2D" uid="uid://cavgyfcp5rsxh" path="res://art/lamp.png" id="9_6rnwj"]
 [ext_resource type="Script" uid="uid://b6i7s5n6lnq8" path="res://Task/lamp.gd" id="9_b625e"]
+[ext_resource type="Texture2D" uid="uid://w2ypsucyps5c" path="res://art/Cards.png" id="11_1r7fo"]
+[ext_resource type="Script" uid="uid://canldvjnxpu32" path="res://Task/Cards/card_system.gd" id="11_2l6mg"]
+[ext_resource type="Texture2D" uid="uid://b0pobvy7ke6t5" path="res://art/Deckbox.png" id="12_60xl8"]
+[ext_resource type="Script" uid="uid://3af8v6oftodc" path="res://Task/Cards/deck_box.gd" id="13_nwa0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgqhp"]
 size = Vector2(34.75, 48.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60xl8"]
+size = Vector2(57.5, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l6mg"]
+size = Vector2(22.75, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(45.25, 38.75)
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 script = ExtResource("1_ovh1h")
@@ -98,6 +111,55 @@ visible = false
 position = Vector2(0.625, 7.375)
 shape = SubResource("RectangleShape2D_pgqhp")
 
+[node name="CardSystem" type="Node2D" parent="." unique_id=1909178784]
+scale = Vector2(4, 4)
+script = ExtResource("11_2l6mg")
+
+[node name="Cards" type="Area2D" parent="CardSystem" unique_id=73540433]
+unique_name_in_owner = true
+position = Vector2(257.75, 228.5)
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="CardSystem/Cards" unique_id=1922167999]
+texture = ExtResource("11_1r7fo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardSystem/Cards" unique_id=259062320]
+position = Vector2(-4.25, 6.75)
+shape = SubResource("RectangleShape2D_60xl8")
+
+[node name="DeckBox" type="Area2D" parent="CardSystem" unique_id=119469212]
+unique_name_in_owner = true
+position = Vector2(213.75, 203)
+collision_mask = 2
+script = ExtResource("13_nwa0r")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="CardSystem/DeckBox" unique_id=1381262073]
+texture = ExtResource("12_60xl8")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardSystem/DeckBox" unique_id=1271876191]
+position = Vector2(-6.625, 3)
+shape = SubResource("RectangleShape2D_2l6mg")
+
+[node name="Shelf" type="Area2D" parent="CardSystem" unique_id=1888075726]
+unique_name_in_owner = true
+visible = false
+position = Vector2(380.5, 36.75)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CardSystem/Shelf" unique_id=145205237]
+modulate = Color(0, 0, 0, 0.67058825)
+texture = ExtResource("12_60xl8")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardSystem/Shelf" unique_id=838596219]
+position = Vector2(-5.875, 3.375)
+shape = SubResource("RectangleShape2D_7jktm")
+
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
 [connection signal="homework_done" from="HomeworkSystem" to="." method="_on_homework_done"]
@@ -106,3 +168,5 @@ shape = SubResource("RectangleShape2D_pgqhp")
 [connection signal="area_clicked" from="HomeworkSystem/Pencil" to="HomeworkSystem" method="next_state"]
 [connection signal="lamp_off" from="Lamp" to="." method="_on_lamp_off"]
 [connection signal="lamp_on" from="Lamp" to="." method="_on_lamp_on"]
+[connection signal="cards_done" from="CardSystem" to="." method="_on_cards_done"]
+[connection signal="area_clicked" from="CardSystem/Cards" to="CardSystem" method="next_state"]

@@ -6,6 +6,7 @@ signal homework_next_step()
 signal homework_done()
 signal lamp_off()
 signal lamp_on()
+signal cards_done()
 
 @onready var bed: SelectableArea = %Bed
 
@@ -32,3 +33,7 @@ func _on_lamp_off() -> void:
 
 func _on_lamp_on() -> void:
 	lamp_on.emit()
+
+
+func _on_cards_done() -> void:
+	cards_done.emit()
