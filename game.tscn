@@ -188,6 +188,7 @@ one_shot = true
 [connection signal="homework_next_step" from="RoomContainer/Bedroom" to="CanvasLayer/TodoList" method="_on_homework_next_step"]
 [connection signal="lamp_off" from="RoomContainer/Bedroom" to="." method="lamp_off"]
 [connection signal="lamp_on" from="RoomContainer/Bedroom" to="." method="lamp_on"]
+[connection signal="laundry_done" from="RoomContainer/Bedroom" to="." method="finish_laundry"]
 [connection signal="note_found" from="RoomContainer/Bedroom" to="CanvasLayer/TodoList" method="_on_room_note_found"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
 [connection signal="toys_done" from="RoomContainer/Bedroom" to="." method="finish_toys"]

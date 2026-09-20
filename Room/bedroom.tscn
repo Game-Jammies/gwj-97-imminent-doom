@@ -8,10 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://08letifd77fa" path="res://art/Homework.png" id="6_d5wd5"]
 [ext_resource type="Script" uid="uid://bph3egg6tolld" path="res://Task/homework_system.gd" id="6_ghvr3"]
 [ext_resource type="Texture2D" uid="uid://blifo107ujis1" path="res://art/Pencil.png" id="7_ghvr3"]
+[ext_resource type="Texture2D" uid="uid://bkrmnynrvd6i5" path="res://art/Laundry.png" id="9_1r7fo"]
 [ext_resource type="Texture2D" uid="uid://cavgyfcp5rsxh" path="res://art/lamp.png" id="9_6rnwj"]
+[ext_resource type="Script" uid="uid://ck0ly3jqdt8cd" path="res://Room/laundry_system.gd" id="9_60xl8"]
 [ext_resource type="Script" uid="uid://b6i7s5n6lnq8" path="res://Task/lamp.gd" id="9_b625e"]
+[ext_resource type="Texture2D" uid="uid://derg0vutly2nn" path="res://art/Shirts Bundle.png" id="10_60xl8"]
 [ext_resource type="Texture2D" uid="uid://w2ypsucyps5c" path="res://art/Cards.png" id="11_1r7fo"]
 [ext_resource type="Script" uid="uid://canldvjnxpu32" path="res://Task/Cards/card_system.gd" id="11_2l6mg"]
+[ext_resource type="Texture2D" uid="uid://k7pxukbdlv4j" path="res://art/Closet.png" id="12_2l6mg"]
 [ext_resource type="Texture2D" uid="uid://b0pobvy7ke6t5" path="res://art/Deckbox.png" id="12_60xl8"]
 [ext_resource type="Script" uid="uid://3af8v6oftodc" path="res://Task/Cards/deck_box.gd" id="13_nwa0r"]
 [ext_resource type="Texture2D" uid="uid://b7pmkox04j1yk" path="res://art/ToyPurple.png" id="15_5ei7k"]
@@ -259,6 +263,56 @@ position = Vector2(380, 669)
 scale = Vector2(4, 4)
 texture = ExtResource("20_hv8a3")
 
+[node name="LaundrySystem" type="Node2D" parent="." unique_id=1879704560]
+script = ExtResource("9_60xl8")
+
+[node name="Basket" type="Area2D" parent="LaundrySystem" unique_id=663936372]
+unique_name_in_owner = true
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="LaundrySystem/Basket" unique_id=2001015973]
+position = Vector2(1645, 589)
+scale = Vector2(4, 4)
+texture = ExtResource("9_1r7fo")
+vframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Basket" unique_id=629065551]
+visible = false
+position = Vector2(83, -313)
+polygon = PackedVector2Array(1451, 859, 1451, 959, 1489, 1036, 1671, 1037, 1671, 945, 1635, 851)
+
+[node name="Clothes" type="Area2D" parent="LaundrySystem" unique_id=780112985]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="LaundrySystem/Clothes" unique_id=1982163587]
+position = Vector2(1659, 435)
+scale = Vector2(4, 4)
+texture = ExtResource("10_60xl8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Clothes" unique_id=555650251]
+visible = false
+position = Vector2(41, -243)
+polygon = PackedVector2Array(1570, 510, 1520, 526, 1535, 558, 1459, 613, 1425, 722, 1488, 725, 1480, 809, 1522, 826, 1677, 824, 1718, 810, 1707, 725, 1764, 721, 1735, 617, 1655, 570, 1648, 550, 1675, 539, 1644, 505)
+
+[node name="Closet" type="Area2D" parent="LaundrySystem" unique_id=1605660992]
+unique_name_in_owner = true
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="LaundrySystem/Closet" unique_id=1827471527]
+position = Vector2(1788, 565)
+scale = Vector2(4, 4)
+texture = ExtResource("12_2l6mg")
+vframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaundrySystem/Closet" unique_id=930395944]
+visible = false
+polygon = PackedVector2Array(1828, 90, 1822, 744, 1918, 930, 1920, 264)
+
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
 [connection signal="homework_done" from="HomeworkSystem" to="." method="_on_homework_done"]
@@ -270,3 +324,7 @@ texture = ExtResource("20_hv8a3")
 [connection signal="cards_done" from="CardSystem" to="." method="_on_cards_done"]
 [connection signal="area_clicked" from="CardSystem/Cards" to="CardSystem" method="next_state"]
 [connection signal="toys_done" from="ToysSystem" to="." method="_on_toys_done"]
+[connection signal="laundry_done" from="LaundrySystem" to="." method="emit_laundry_done"]
+[connection signal="area_clicked" from="LaundrySystem/Basket" to="LaundrySystem" method="next_state"]
+[connection signal="area_clicked" from="LaundrySystem/Clothes" to="LaundrySystem" method="next_state"]
+[connection signal="area_clicked" from="LaundrySystem/Closet" to="LaundrySystem" method="next_state"]

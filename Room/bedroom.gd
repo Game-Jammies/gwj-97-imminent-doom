@@ -8,8 +8,10 @@ signal lamp_off()
 signal lamp_on()
 signal cards_done()
 signal toys_done()
+signal laundry_done()
 
 @onready var bed: SelectableArea = %Bed
+
 
 # bubbles up the bed's signal when it is clicked
 func _ready() -> void:
@@ -42,3 +44,7 @@ func _on_cards_done() -> void:
 
 func _on_toys_done() -> void:
 	toys_done.emit()
+
+func emit_laundry_done() -> void:
+	laundry_done.emit()
+	
