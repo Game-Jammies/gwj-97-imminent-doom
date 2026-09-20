@@ -8,12 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://08letifd77fa" path="res://art/Homework.png" id="6_d5wd5"]
 [ext_resource type="Script" uid="uid://bph3egg6tolld" path="res://Task/homework_system.gd" id="6_ghvr3"]
 [ext_resource type="Texture2D" uid="uid://blifo107ujis1" path="res://art/Pencil.png" id="7_ghvr3"]
+[ext_resource type="Texture2D" uid="uid://cavgyfcp5rsxh" path="res://art/lamp.png" id="9_6rnwj"]
+[ext_resource type="Script" uid="uid://b6i7s5n6lnq8" path="res://Task/lamp.gd" id="9_b625e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgqhp"]
+size = Vector2(34.75, 48.25)
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 script = ExtResource("1_ovh1h")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=541148555]
-color = Color(0.35157788, 0.5433044, 0.90404904, 1)
+unique_name_in_owner = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=608287085]
 position = Vector2(960, 540)
@@ -78,9 +83,26 @@ texture = ExtResource("7_ghvr3")
 visible = false
 polygon = PackedVector2Array(1256, 491, 1269, 480, 1340, 548, 1325, 561)
 
+[node name="Lamp" type="Area2D" parent="." unique_id=1788210280]
+position = Vector2(898, 393)
+scale = Vector2(4, 4)
+script = ExtResource("9_b625e")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lamp" unique_id=1422746970]
+texture = ExtResource("9_6rnwj")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp" unique_id=1098686569]
+visible = false
+position = Vector2(0.625, 7.375)
+shape = SubResource("RectangleShape2D_pgqhp")
+
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
 [connection signal="homework_done" from="HomeworkSystem" to="." method="_on_homework_done"]
 [connection signal="homework_next_step" from="HomeworkSystem" to="." method="_on_homework_system_next_step"]
 [connection signal="area_clicked" from="HomeworkSystem/Folder" to="HomeworkSystem" method="next_state"]
 [connection signal="area_clicked" from="HomeworkSystem/Pencil" to="HomeworkSystem" method="next_state"]
+[connection signal="lamp_off" from="Lamp" to="." method="_on_lamp_off"]
+[connection signal="lamp_on" from="Lamp" to="." method="_on_lamp_on"]
