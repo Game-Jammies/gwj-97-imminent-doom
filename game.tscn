@@ -134,6 +134,24 @@ mouse_filter = 2
 stream = ExtResource("7_hve3p")
 expand = true
 
+[node name="TryAgainButton" type="Button" parent="CanvasLayer" unique_id=1295050973]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -75.0
+offset_right = 123.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_fc0e3")
+theme_override_font_sizes/font_size = 48
+text = "Try Again?"
+
 [node name="RoomContainer" type="Node" parent="." unique_id=1676846379]
 
 [node name="KitchenRoom" parent="RoomContainer" unique_id=95437799 instance=ExtResource("2_e2o6t")]
@@ -153,10 +171,12 @@ one_shot = true
 [connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="BedtimePopup" method="hide"]
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
+[connection signal="finished" from="CanvasLayer/OpeningCut" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="CanvasLayer/WinCut" to="." method="_on_cut_finished"]
+[connection signal="finished" from="CanvasLayer/LoseCut" to="." method="_on_cut_finished"]
 [connection signal="chicken_done" from="RoomContainer/KitchenRoom" to="." method="finish_chicken"]
 [connection signal="chicken_next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_chicken_next_step"]
 [connection signal="dish_next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_dishes_next_step"]
-[connection signal="finished" from="CanvasLayer/OpeningCut" to="." method="_on_video_stream_player_finished"]
 [connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
 [connection signal="dog_food_done" from="RoomContainer/KitchenRoom" to="." method="finish_feed_dog"]
 [connection signal="dog_food_done" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_dog_food_done"]

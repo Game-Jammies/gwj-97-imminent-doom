@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://ceu6qgh7teyu" path="res://Task/Toys/toys_system.gd" id="15_wxudh"]
 [ext_resource type="Script" uid="uid://ccbjx4s4rq4bo" path="res://Task/Toys/purple_toy.gd" id="16_mxjvi"]
 [ext_resource type="Script" uid="uid://c3wundimvn0h8" path="res://Task/Toys/blue_toy.gd" id="17_u4t0j"]
+[ext_resource type="Texture2D" uid="uid://bqwy1ygwqyrl1" path="res://art/ChildSleep.png" id="20_hv8a3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgqhp"]
 size = Vector2(34.75, 48.25)
@@ -250,6 +251,13 @@ frame = 1
 visible = false
 position = Vector2(-5.625, 3.625)
 shape = SubResource("RectangleShape2D_wxudh")
+
+[node name="ChildSleeping" type="Sprite2D" parent="." unique_id=111146601]
+unique_name_in_owner = true
+visible = false
+position = Vector2(380, 669)
+scale = Vector2(4, 4)
+texture = ExtResource("20_hv8a3")
 
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]

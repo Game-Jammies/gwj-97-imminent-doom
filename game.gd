@@ -10,6 +10,7 @@ extends Node2D
 @onready var opening_cut:= %OpeningCut
 @onready var win_cut:= %WinCut
 @onready var lose_cut:= %LoseCut
+@onready var try_again_button := %TryAgainButton
 
 
 ## A list containing all the selectable objects
@@ -92,7 +93,7 @@ func _on_player_sleeps() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("Time ran out! You're grounded!")
+	lose_cut.play()
 	pass 
 
 
@@ -112,3 +113,11 @@ func _on_go_to_kitchen_pressed() -> void:
 	bedroom.visible = false
 	go_to_bedroom_button.visible = true
 	Global.end_transition()
+
+# Cutscene finished
+func _on_cut_finished() -> void:
+	try_again_button.show()
+
+
+func _on_try_again_button_pressed() -> void:
+	pass # Replace with function body.
