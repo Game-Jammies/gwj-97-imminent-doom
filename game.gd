@@ -7,6 +7,10 @@ extends Node2D
 @onready var bedroom := %Bedroom
 @onready var kitchen := %KitchenRoom
 @onready var bedtime_popup: PopupPanel = %BedtimePopup
+@onready var opening_cut:= %OpeningCut
+@onready var win_cut:= %WinCut
+@onready var lose_cut:= %LoseCut
+
 
 ## A list containing all the selectable objects
 var selectable_areas: Array[SelectableArea] = []
@@ -24,6 +28,9 @@ var tasks: Dictionary[String, bool] = {
 	"CleanToys": false, # Put the toys away
 }
 
+
+
+
 func finish_trash(): tasks["Trash"] = true
 func finish_chicken(): tasks["Chicken"] = true
 func finish_feed_dog(): tasks["FeedDog"] = true
@@ -38,6 +45,10 @@ func lamp_off(): tasks["Lamp"] = true
 func lamp_on(): tasks["Lamp"] = false
 
 func _ready() -> void:
+	opening_cut.play()
+	
+func _on_video_stream_player_finished():
+	opening_cut.visible = false
 	kitchen.visible = false
 	go_to_bedroom_button.visible = false
 	bedroom.visible = true
@@ -75,9 +86,9 @@ func _on_player_sleeps() -> void:
 			win = false
 			break
 	if win:
-		print("You survived!")
+		win_cut.play()
 	else:
-		print("You forgot something! You're grounded!")
+		lose_cut.play()
 
 
 func _on_timer_timeout() -> void:
