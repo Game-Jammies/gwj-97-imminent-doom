@@ -36,21 +36,6 @@ scroll_hint_mode = 1
 [node name="Tasks" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1115113730]
 layout_mode = 2
 
-[node name="Task" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=499762300 instance=ExtResource("2_yx0p0")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Task2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1101828838 instance=ExtResource("2_yx0p0")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Task3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1606933332 instance=ExtResource("2_yx0p0")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
 [node name="Chicken" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1887083290 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true
 visible = false
