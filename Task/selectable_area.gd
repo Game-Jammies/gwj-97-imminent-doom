@@ -6,17 +6,19 @@ signal area_clicked()
 var is_in_menu: bool = false
 var _is_hovering: bool = false
 var _is_dragging: bool = false
+var _base_modulate: Color = Color.WHITE
 
 func _ready() -> void:
+	_base_modulate = _sprite.modulate
 	mouse_entered.connect(_hover_start)
 	mouse_exited.connect(_hover_end)
 	input_event.connect(_on_input_event)
 
 func _process(_delta) -> void:
 	if input_pickable and _is_hovering and not is_in_menu:
-		_sprite.modulate = Color(1.05, 1.15, 1.15, 1.0)
+		_sprite.modulate = _base_modulate * Color(1.05, 1.15, 1.15, 1.0)
 	else: 
-		_sprite.modulate = Color.WHITE
+		_sprite.modulate = _base_modulate
 
 func _hover_start(): _is_hovering = true
 func _hover_end(): _is_hovering = false

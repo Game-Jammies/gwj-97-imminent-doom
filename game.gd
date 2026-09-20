@@ -21,7 +21,11 @@ var tasks: Dictionary[String, bool] = {
 	"Chicken" : false, # Take the chicken out the fridge and put it in the sink
 	"FeedDog" : false, # Feed the dog
 	"WashDishes": false, # Wash the dishes
-	"TurnOffLight": false, # Turn off the bedroom lamp
+	"DoHomework": false, # Do the homework
+	"Lamp": false, # Turn off the bedroom lamp
+	"Laundry": false, # Do the laundry
+	"CleanCards": false, # Put the cards away
+	"CleanToys": false, # Put the toys away
 }
 
 
@@ -31,8 +35,14 @@ func finish_trash(): tasks["Trash"] = true
 func finish_chicken(): tasks["Chicken"] = true
 func finish_feed_dog(): tasks["FeedDog"] = true
 func finish_dishes(): tasks["WashDishes"] = true
-func finish_light(): tasks["TurnOffLight"] = true
+func finish_homework(): tasks["DoHomework"] = true
+func finish_laundry(): tasks["Laundry"] = true
+func finish_cards(): tasks["CleanCards"] = true
+func finish_toys(): tasks["CleanToys"] = true
 
+## The lamp is a special case where the task can be undone if the light is toggled back on
+func lamp_off(): tasks["Lamp"] = true
+func lamp_on(): tasks["Lamp"] = false
 
 func _ready() -> void:
 	opening_cut.play()

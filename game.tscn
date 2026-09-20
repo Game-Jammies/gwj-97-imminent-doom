@@ -65,6 +65,7 @@ text = "No"
 layer = 50
 
 [node name="TodoList" parent="CanvasLayer" unique_id=910694781 instance=ExtResource("2_feb5d")]
+unique_name_in_owner = true
 
 [node name="TimerLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1880124389]
 unique_name_in_owner = true
@@ -152,7 +153,22 @@ one_shot = true
 [connection signal="pressed" from="BedtimePopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="BedtimePopup" method="hide"]
 [connection signal="pressed" from="CanvasLayer/GoToKitchen" to="." method="_on_go_to_kitchen_pressed"]
 [connection signal="pressed" from="CanvasLayer/GoToBedroom" to="." method="_on_go_to_bedroom_pressed"]
+[connection signal="chicken_done" from="RoomContainer/KitchenRoom" to="." method="finish_chicken"]
+[connection signal="chicken_next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_chicken_next_step"]
+[connection signal="dish_next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_dishes_next_step"]
 [connection signal="finished" from="CanvasLayer/OpeningCut" to="." method="_on_video_stream_player_finished"]
 [connection signal="dishes_done" from="RoomContainer/KitchenRoom" to="." method="finish_dishes"]
+[connection signal="dog_food_done" from="RoomContainer/KitchenRoom" to="." method="finish_feed_dog"]
+[connection signal="dog_food_done" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_dog_food_done"]
+[connection signal="note_found" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_room_note_found"]
+[connection signal="trash_done" from="RoomContainer/KitchenRoom" to="." method="finish_trash"]
+[connection signal="trash_next_step" from="RoomContainer/KitchenRoom" to="CanvasLayer/TodoList" method="_on_trash_next_step"]
+[connection signal="cards_done" from="RoomContainer/Bedroom" to="." method="finish_cards"]
+[connection signal="homework_done" from="RoomContainer/Bedroom" to="." method="finish_homework"]
+[connection signal="homework_next_step" from="RoomContainer/Bedroom" to="CanvasLayer/TodoList" method="_on_homework_next_step"]
+[connection signal="lamp_off" from="RoomContainer/Bedroom" to="." method="lamp_off"]
+[connection signal="lamp_on" from="RoomContainer/Bedroom" to="." method="lamp_on"]
+[connection signal="note_found" from="RoomContainer/Bedroom" to="CanvasLayer/TodoList" method="_on_room_note_found"]
 [connection signal="request_bedtime" from="RoomContainer/Bedroom" to="." method="_show_bedtime_popup"]
+[connection signal="toys_done" from="RoomContainer/Bedroom" to="." method="finish_toys"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

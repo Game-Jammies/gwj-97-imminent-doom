@@ -1,6 +1,7 @@
 class_name Trash extends SelectableArea
-signal trash_done
+signal trash_done()
 signal hovering_door
+signal trash_next_step
 @onready var trash_bag := $TrashBag
 @onready var can_collision_polygon := $CanCollisionPolygon
 
@@ -27,11 +28,13 @@ func _on_click() -> void:
 		can_collision_polygon.disabled = true
 		trash_bag.enable()
 		
+	trash_next_step.emit()
 
 
 func _on_trash_bag_trash_removed() -> void:
 	current_state = States.DONE
 	_sprite.frame = 3
+	trash_next_step.emit()
 	trash_done.emit()
 
 
