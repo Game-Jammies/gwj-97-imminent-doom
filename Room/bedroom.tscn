@@ -14,6 +14,11 @@
 [ext_resource type="Script" uid="uid://canldvjnxpu32" path="res://Task/Cards/card_system.gd" id="11_2l6mg"]
 [ext_resource type="Texture2D" uid="uid://b0pobvy7ke6t5" path="res://art/Deckbox.png" id="12_60xl8"]
 [ext_resource type="Script" uid="uid://3af8v6oftodc" path="res://Task/Cards/deck_box.gd" id="13_nwa0r"]
+[ext_resource type="Texture2D" uid="uid://b7pmkox04j1yk" path="res://art/ToyPurple.png" id="15_5ei7k"]
+[ext_resource type="Texture2D" uid="uid://cm2krg1aqy3bn" path="res://art/ToyBlue.png" id="15_fdi52"]
+[ext_resource type="Script" uid="uid://ceu6qgh7teyu" path="res://Task/Toys/toys_system.gd" id="15_wxudh"]
+[ext_resource type="Script" uid="uid://ccbjx4s4rq4bo" path="res://Task/Toys/purple_toy.gd" id="16_mxjvi"]
+[ext_resource type="Script" uid="uid://c3wundimvn0h8" path="res://Task/Toys/blue_toy.gd" id="17_u4t0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgqhp"]
 size = Vector2(34.75, 48.25)
@@ -26,6 +31,17 @@ size = Vector2(22.75, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(45.25, 38.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ei7k"]
+size = Vector2(23.75, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwa0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4t0j"]
+size = Vector2(22.25, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxudh"]
+size = Vector2(23.75, 25.75)
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
 script = ExtResource("1_ovh1h")
@@ -103,6 +119,7 @@ script = ExtResource("9_b625e")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
 [node name="Sprite2D" type="Sprite2D" parent="Lamp" unique_id=1422746970]
+position = Vector2(-4.25, -5)
 texture = ExtResource("9_6rnwj")
 hframes = 2
 
@@ -117,7 +134,7 @@ script = ExtResource("11_2l6mg")
 
 [node name="Cards" type="Area2D" parent="CardSystem" unique_id=73540433]
 unique_name_in_owner = true
-position = Vector2(257.75, 228.5)
+position = Vector2(248.5, 231.25)
 script = ExtResource("3_ovh1h")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
@@ -125,12 +142,13 @@ metadata/_custom_type_script = "uid://du3ifkooupqrr"
 texture = ExtResource("11_1r7fo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardSystem/Cards" unique_id=259062320]
+visible = false
 position = Vector2(-4.25, 6.75)
 shape = SubResource("RectangleShape2D_60xl8")
 
 [node name="DeckBox" type="Area2D" parent="CardSystem" unique_id=119469212]
 unique_name_in_owner = true
-position = Vector2(213.75, 203)
+position = Vector2(296.25, 240.5)
 collision_mask = 2
 script = ExtResource("13_nwa0r")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
@@ -140,6 +158,7 @@ texture = ExtResource("12_60xl8")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardSystem/DeckBox" unique_id=1271876191]
+visible = false
 position = Vector2(-6.625, 3)
 shape = SubResource("RectangleShape2D_2l6mg")
 
@@ -160,6 +179,78 @@ frame = 1
 position = Vector2(-5.875, 3.375)
 shape = SubResource("RectangleShape2D_7jktm")
 
+[node name="ToysSystem" type="Node2D" parent="." unique_id=1359395635]
+scale = Vector2(4, 4)
+script = ExtResource("15_wxudh")
+
+[node name="PurpleToy" type="Area2D" parent="ToysSystem" unique_id=1799499986]
+unique_name_in_owner = true
+position = Vector2(374.75, 237.5)
+collision_mask = 32
+script = ExtResource("16_mxjvi")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="ToysSystem/PurpleToy" unique_id=1090652800]
+texture = ExtResource("15_5ei7k")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToysSystem/PurpleToy" unique_id=170593310]
+position = Vector2(-4.375, 6.25)
+shape = SubResource("RectangleShape2D_5ei7k")
+
+[node name="BlueToy" type="Area2D" parent="ToysSystem" unique_id=652353492]
+unique_name_in_owner = true
+position = Vector2(397.75, 215)
+collision_mask = 16
+script = ExtResource("17_u4t0j")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="ToysSystem/BlueToy" unique_id=630554575]
+texture = ExtResource("15_fdi52")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToysSystem/BlueToy" unique_id=464386957]
+position = Vector2(-5.25, 5.5)
+shape = SubResource("RectangleShape2D_nwa0r")
+
+[node name="PurpleShelf" type="Area2D" parent="ToysSystem" unique_id=683679686]
+unique_name_in_owner = true
+position = Vector2(410.75, 38.75)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="ToysSystem/PurpleShelf" unique_id=1808403775]
+modulate = Color(0.5254902, 0, 0.36862746, 0.58431375)
+texture = ExtResource("15_5ei7k")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToysSystem/PurpleShelf" unique_id=2112756050]
+visible = false
+position = Vector2(-6.25, 4.75)
+shape = SubResource("RectangleShape2D_u4t0j")
+
+[node name="BlueShelf" type="Area2D" parent="ToysSystem" unique_id=1209525092]
+unique_name_in_owner = true
+position = Vector2(434.25, 38)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_ovh1h")
+metadata/_custom_type_script = "uid://du3ifkooupqrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="ToysSystem/BlueShelf" unique_id=916879837]
+modulate = Color(0, 0.07620864, 0.49124795, 0.6039216)
+texture = ExtResource("15_fdi52")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToysSystem/BlueShelf" unique_id=1285136613]
+visible = false
+position = Vector2(-5.625, 3.625)
+shape = SubResource("RectangleShape2D_wxudh")
+
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
 [connection signal="homework_done" from="HomeworkSystem" to="." method="_on_homework_done"]
@@ -170,3 +261,4 @@ shape = SubResource("RectangleShape2D_7jktm")
 [connection signal="lamp_on" from="Lamp" to="." method="_on_lamp_on"]
 [connection signal="cards_done" from="CardSystem" to="." method="_on_cards_done"]
 [connection signal="area_clicked" from="CardSystem/Cards" to="CardSystem" method="next_state"]
+[connection signal="toys_done" from="ToysSystem" to="." method="_on_toys_done"]
