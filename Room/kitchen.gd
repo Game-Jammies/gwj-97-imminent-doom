@@ -13,17 +13,14 @@ func emit_dishes_done():
 
 func _on_note_note_found(message: String) -> void:
 	note_found.emit(message)
-	print("Kitchen")
 
 
 func _on_dishes_system_next_step() -> void:
 	dish_next_step.emit()
-	print("DishNextKitchen")
 
 
 func _on_trash_next_step() -> void:
 	trash_next_step.emit()
-	print("TrashNextKitchen")
 
 
 func emit_trash_done() -> void:
@@ -32,3 +29,7 @@ func emit_trash_done() -> void:
 
 func emit_chicken_done() -> void:
 	chicken_done.emit()
+
+
+func _on_dog_system_dog_fed_done() -> void:
+	pass # Replace with function body.

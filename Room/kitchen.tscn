@@ -191,3 +191,4 @@ shape = SubResource("RectangleShape2D_ionpo")
 [connection signal="trash_next_step" from="Trash" to="." method="_on_trash_next_step"]
 [connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
 [connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]
+[connection signal="dog_fed_done" from="DogSystem" to="." method="_on_dog_system_dog_fed_done"]
