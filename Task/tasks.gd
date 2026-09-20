@@ -38,3 +38,16 @@ func _on_homework_next_step() -> void:
 		1: %Homework.complete_task()
 		
 	homeworkTracker += 1
+
+
+func _on_dog_food_done() -> void:
+	%DogFood.complete_task()
+
+
+func _on_chicken_next_step() -> void:
+	match chickenTracker:
+		0: %Chicken.update_message("Put Chicken In Sink")
+		1: %Chicken.complete_task()
+	
+	chickenTracker += 1
+		

@@ -25,7 +25,6 @@ func next_state() -> void:
 	if state != HomeworkState.MARKED:
 		set_state(state + 1)
 		homework_next_step.emit()
-		print("homeworknext")
 
 
 func set_state(new_state: HomeworkState) -> void: 

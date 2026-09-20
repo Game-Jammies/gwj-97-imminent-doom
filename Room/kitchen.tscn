@@ -183,6 +183,7 @@ scale = Vector2(1.1466854, 0.7880909)
 shape = SubResource("RectangleShape2D_ionpo")
 
 [connection signal="chicken_done" from="ChickenSystem" to="." method="emit_chicken_done"]
+[connection signal="chicken_next_step" from="ChickenSystem" to="." method="_on_chicken_next_step"]
 [connection signal="area_clicked" from="ChickenSystem/Chicken" to="ChickenSystem" method="next_state"]
 [connection signal="area_clicked" from="ChickenSystem/Fridge" to="ChickenSystem" method="next_state"]
 [connection signal="dishes_done" from="DishesSystem" to="." method="emit_dishes_done"]
