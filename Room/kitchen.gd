@@ -4,6 +4,7 @@ signal dishes_done()
 signal note_found(message: String)
 signal dish_next_step()
 signal trash_next_step()
+signal trash_done()
 
 func emit_dishes_done():
 	dishes_done.emit()
@@ -22,3 +23,7 @@ func _on_dishes_system_next_step() -> void:
 func _on_trash_next_step() -> void:
 	trash_next_step.emit()
 	print("TrashNextKitchen")
+
+
+func emit_trash_done() -> void:
+	trash_done.emit()
