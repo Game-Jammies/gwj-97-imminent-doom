@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://du3ifkooupqrr" path="res://Task/selectable_area.gd" id="3_ovh1h"]
 [ext_resource type="PackedScene" uid="uid://6q7mg5wo3gti" path="res://Task/note.tscn" id="5_jv7ag"]
 [ext_resource type="Texture2D" uid="uid://08letifd77fa" path="res://art/Homework.png" id="6_d5wd5"]
+[ext_resource type="Script" uid="uid://bph3egg6tolld" path="res://Room/homework_system.gd" id="6_ghvr3"]
 [ext_resource type="Texture2D" uid="uid://blifo107ujis1" path="res://art/Pencil.png" id="7_ghvr3"]
 
 [node name="Bedroom" type="Node2D" unique_id=1803660019]
@@ -45,8 +46,10 @@ sprite_frame = 2
 message = "Chicken"
 
 [node name="HomeworkSystem" type="Node2D" parent="." unique_id=917374850]
+script = ExtResource("6_ghvr3")
 
 [node name="Folder" type="Area2D" parent="HomeworkSystem" unique_id=1705122574]
+unique_name_in_owner = true
 script = ExtResource("3_ovh1h")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
@@ -58,9 +61,11 @@ vframes = 3
 frame = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HomeworkSystem/Folder" unique_id=340747511]
+visible = false
 polygon = PackedVector2Array(970, 462, 1021, 562, 1263, 562, 1212, 462)
 
 [node name="Pencil" type="Area2D" parent="HomeworkSystem" unique_id=607450767]
+unique_name_in_owner = true
 script = ExtResource("3_ovh1h")
 metadata/_custom_type_script = "uid://du3ifkooupqrr"
 
@@ -70,7 +75,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("7_ghvr3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HomeworkSystem/Pencil" unique_id=805520981]
+visible = false
 polygon = PackedVector2Array(1256, 491, 1269, 480, 1340, 548, 1325, 561)
 
 [connection signal="note_found" from="DogNote" to="." method="_on_note_found"]
 [connection signal="note_found" from="ChickenNote" to="." method="_on_note_found"]
+[connection signal="area_clicked" from="HomeworkSystem/Folder" to="HomeworkSystem" method="next_state"]
+[connection signal="area_clicked" from="HomeworkSystem/Pencil" to="HomeworkSystem" method="next_state"]
