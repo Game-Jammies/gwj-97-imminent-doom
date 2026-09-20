@@ -51,20 +51,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Task4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1887083290 instance=ExtResource("2_yx0p0")]
+[node name="Chicken" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1887083290 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+message = "Take Out The Chicken"
 
-[node name="Task5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=31560942 instance=ExtResource("2_yx0p0")]
+[node name="Trash" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=31560942 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+message = "Take Out The Trash"
 
-[node name="Task6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1797792208 instance=ExtResource("2_yx0p0")]
+[node name="DogFood" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1797792208 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+message = "Feed The Dog"
 
 [node name="Dishes" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Tasks" unique_id=1263245714 instance=ExtResource("2_yx0p0")]
 unique_name_in_owner = true

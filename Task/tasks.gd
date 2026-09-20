@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 func _on_kitchen_room_note_found(message: String) -> void:
 	print("tasks")
 	match message:
-		"Chicken": %Task4.show()
-		"Trash": %Task5.show()
-		"FeedDog": %Task6.show()
+		"Chicken": %Chicken.show()
+		"Trash": %Trash.show()
+		"FeedDog": %DogFood.show()
 		"WashDishes": %Dishes.show()
