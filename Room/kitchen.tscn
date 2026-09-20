@@ -113,8 +113,9 @@ visible = false
 position = Vector2(1774.5, 352.5)
 shape = SubResource("RectangleShape2D_pgqhp")
 
-[node name="Note" parent="." unique_id=1607592638 instance=ExtResource("2_tfl01")]
+[node name="TrashNote" parent="." unique_id=1607592638 instance=ExtResource("2_tfl01")]
 position = Vector2(1382, 541)
+message = "Trash"
 
 [node name="DishesNote" parent="." unique_id=2146877164 instance=ExtResource("2_tfl01")]
 position = Vector2(1544, 240)
@@ -125,5 +126,5 @@ message = "WashDishes"
 [connection signal="area_clicked" from="DishesSystem/Faucet" to="DishesSystem" method="next_state"]
 [connection signal="hovering_door" from="Trash" to="Door" method="_on_trash_hovering_door"]
 [connection signal="trash_done" from="Trash" to="Door" method="_on_trash_trash_done"]
-[connection signal="note_found" from="Note" to="." method="_on_note_note_found"]
-[connection signal="note_found" from="DishesNote" to="." method="_on_dishes_note_note_found"]
+[connection signal="note_found" from="TrashNote" to="." method="_on_note_note_found"]
+[connection signal="note_found" from="DishesNote" to="." method="_on_note_note_found"]

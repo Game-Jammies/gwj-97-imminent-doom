@@ -10,8 +10,3 @@ func emit_dishes_done():
 func _on_note_note_found(message: String) -> void:
 	note_found.emit(message)
 	print("Kitchen")
-
-
-func _on_dishes_note_note_found(message: String) -> void:
-	note_found.emit(message)
-	print("Kitchen")
